@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="85.752">
+    <testcase classname="Login Cubeforall" name="Login with happy flow 2" time="85.119">
+        <system-out>
+            <![CDATA[Given accept cookie.........................................................passed
+When click initial sign in button...........................................passed
+When input email sgqa-ccn-72920@mailinator.com and password CCNPegasus123 and press sign in to continue login.passed
+And back to the main tab browser............................................passed
+Given "User A" click product tab to subscribe to product....................passed
+And Select plan "Plan A" "Moaah"............................................passed
+]]>
+        </system-out>
+    </testcase>
+</testsuite>
