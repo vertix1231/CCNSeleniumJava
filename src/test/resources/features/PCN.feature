@@ -20,7 +20,7 @@ Discount apply as discount code by PM via subscription
 Discount can be applied across to the whole region/country/cities (configurable at the backend)
 Discount can be applied to the product plan by default
 
-	@S1
+	@PCN1
   Scenario: S1 - Subscription of the first month. PCN Configuration:  set to 10% of each subscription, PCN applies to all products, countries, cities, companies.
     Given "PM1-A" has subscribed a plan A at the beginning of this month with a subscription charge $40
     And "PM2-A" has subscribed a plan B at the beginning of this month with a subscription charge $40
