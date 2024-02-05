@@ -1,3 +1,4 @@
+@allcompany
 Feature: My Company
 
 	Background: 
