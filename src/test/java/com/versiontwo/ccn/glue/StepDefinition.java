@@ -68,6 +68,7 @@ public class StepDefinition {
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
+	
 	@Before
 	public void workSetUp() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
@@ -84,6 +85,7 @@ public class StepDefinition {
 		UtilsTest.scenariotestcount++;
 		//		originalWindow = driver.getWindowHandle();
 	}
+	
 	@Given("^go to main web")
 	public void go_to_main_web() throws Exception {
 		driver.get(Constants.URL_MAIN_WEB);	
