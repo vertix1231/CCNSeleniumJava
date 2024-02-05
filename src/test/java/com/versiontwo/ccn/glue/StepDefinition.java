@@ -1841,6 +1841,55 @@ public class StepDefinition {
 		driver.close();
 		driver.quit();
 	}
+	
+	@Given("{string} has subscribed a plan A at the beginning of this month with a subscription charge ${int}")
+	public void has_subscribed_a_plan_a_at_the_beginning_of_this_month_with_a_subscription_charge_$(String string, Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+	@Given("{string} has subscribed a plan B at the beginning of this month with a subscription charge ${int}")
+	public void has_subscribed_a_plan_b_at_the_beginning_of_this_month_with_a_subscription_charge_$(String string, Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+	@Given("{string} has subscribed a plan C at the beginning of this month with a subscription charge ${int}")
+	public void has_subscribed_a_plan_c_at_the_beginning_of_this_month_with_a_subscription_charge_$(String string, Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+	@When("PCN is set to {int}% of Subscription and applied to all products, countries, Cities,companies")
+	public void pcn_is_set_to_of_subscription_and_applied_to_all_products_countries_cities_companies(Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+	@When("Minimum PCN charge is set to ${int}")
+	public void minimum_pcn_charge_is_set_to_$(Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+	@When("PCN charge is calculated at {int}% of the each subscription")
+	public void pcn_charge_is_calculated_at_of_the_each_subscription(Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+	@When("PCN charge is based on the previous month's subscription\\(s)")
+	public void pcn_charge_is_based_on_the_previous_month_s_subscription_s() {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+	@When("This is first month of the subscriptions of this company")
+	public void this_is_first_month_of_the_subscriptions_of_this_company() {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+	@Then("PCN charge for this is {int}")
+	public void pcn_charge_for_this_is(Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+
+
+
 
 	@After
 	public void closeObject() {
