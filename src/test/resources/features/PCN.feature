@@ -81,7 +81,7 @@ Discount can be applied to the product plan by default
     And the total PCN charge paid by "PM2-A" for plan D is $50*10%
     Then "PM1-B" has subscribed a individual plan before join company A
     And "PM1-B"'s individual plan has to meet the minimum PCN charge of $20
-    Then the total PCN charge paid by "PM2-B" for the individual plan is $20
+    Then the total PCN charge paid by "PM1-B" for the individual plan is $20
 
   Scenario: S5 - Subsequent month after new PM join. PCN Configuration:  set to 10% of each subscription, PCN applies to all products, countries, cities, companies.
     Given "PM1-A" has renewed a plan A at the beginning of this month with a subscription charge $40
