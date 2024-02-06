@@ -80,7 +80,7 @@ Feature: AWB Concierge Product Plan
       
    
  
-    @AWBConciergeplan @e2e
+    @AWBConciergeplan @e2e @UnsubscribeAWB
   Scenario Outline: Offline payment Company member admin UnSubscribe "AWB Concierge" plan with "cancelled" status, user count "1" billing cycle "Expired on date" and get email user side
     Given accept cookie
     When click initial sign in button

@@ -95,6 +95,14 @@ public class StepDefinition {
 		extentTest.pass("Navigation to : " + Constants.URL_MAIN_WEB,
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	@Given("^go to yopmail")
+	public void go_to_yopmail() throws Exception {
+		driver.get(Constants.YOPMAIL_SERVICE_URL);	
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		extentTest.log(Status.PASS, "go to yopmail : " + Constants.YOPMAIL_SERVICE_URL);
+		extentTest.pass("go to yopmail : " + Constants.YOPMAIL_SERVICE_URL,
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
 	@Given("^accept cookie")
 	public void accept_cookie() throws InterruptedException, Exception {
 		driver.get(Constants.URL_MAIN_WEB);	

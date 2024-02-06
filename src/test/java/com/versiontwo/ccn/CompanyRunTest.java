@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 monochrome= true,
 plugin = {"pretty", "junit:target/JUnitReports/reportcompany.xml",
 		"json:target/JSONReports/reportcompany.json",
-"html:target/HtmlReportscompany.html"},tags="@S1")
+"html:target/HtmlReportscompany.html"},tags="@MyCompanysuggestion-1")
 public class CompanyRunTest {
 
 	@Test
