@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features", monochrome = true, plugin = { "pretty",
 		"junit:target/JUnitReports/reportsubscription.xml", "json:target/JSONReports/reportsubscription.json",
-		"html:target/HtmlReportsubscriptions.html" }, tags = "@QuotationRequestplan-1")
+		"html:target/HtmlReportsubscriptions.html" }, tags = "@UnsubscribeAWB")
 public class SubscriptionRunTest {
 
 	@Test

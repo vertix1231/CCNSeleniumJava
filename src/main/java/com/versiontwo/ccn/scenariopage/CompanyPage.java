@@ -246,7 +246,7 @@ public class CompanyPage {
 	
 	//*[@id="cube-confirm-remove"]
 	
-//	The user’s role has been changed successfully. User will be notified via email of this change.
+//	The userï¿½s role has been changed successfully. User will be notified via email of this change.
 	
 	//	By btnChangeRolePerUsers = By.id("cube-change-role-["+index+"]"); //Conditionally
 
@@ -295,8 +295,8 @@ public class CompanyPage {
 
 		//change role success gettext
 		//*[@id="toppage"]/main/div[3]/wc-company/div/div[1]/div[2]/div/div/div[1]/p
-		//				The user’s role has been changed successfully. User will be notified via email of this change.
-		//				The user’s role has been changed successfully. User will be notified via email of this change.
+		//				The userï¿½s role has been changed successfully. User will be notified via email of this change.
+		//				The userï¿½s role has been changed successfully. User will be notified via email of this change.
 		// button confirm change status
 		//*[@id="cube-confirm-change-status"]
 
@@ -350,8 +350,8 @@ public class CompanyPage {
 		//*[@id="cube-members"]/tbody/tr[2]/td[5]/div/div/div[2]/div[1]/div[2]/div
 		//change role success gettext
 		//*[@id="toppage"]/main/div[3]/wc-company/div/div[1]/div[2]/div/div/div[1]/p
-		//		The user’s role has been changed successfully. User will be notified via email of this change.
-		//		The user’s role has been changed successfully. User will be notified via email of this change.
+		//		The userï¿½s role has been changed successfully. User will be notified via email of this change.
+		//		The userï¿½s role has been changed successfully. User will be notified via email of this change.
 		// button confirm change status
 		//*[@id="cube-confirm-change-status"]
 
@@ -434,7 +434,7 @@ public class CompanyPage {
 	@CacheLookup
 	private WebElement accountCircleIcon;
 	
-	@FindBy(xpath="//div[@id=\"toppage\"]/header/div[2]/div[2]/div[2]/div[2]/wc-login/div/div/div[2]/div[2]/div")
+	@FindBy(xpath="//*[@id=\"toppage\"]/header/div[2]/div[2]/div[2]/div[2]/wc-login/div/div/div[1]/div[1]")
 	@CacheLookup
 	private List<WebElement> lsMenuAccount;
 	
@@ -552,6 +552,7 @@ public class CompanyPage {
 //		driver.get("https://sandbox.cubeforall.com/portal/manage-subscription/");
 		clickAccountCircleIcon();
 		Thread.sleep(waitResponse);
+		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		switch (menu) {
 		case "My Portal":
