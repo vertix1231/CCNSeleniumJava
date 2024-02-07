@@ -8,7 +8,7 @@ Feature: My Company
 
 
   @MyCompanysuggestion-1 @regression @companys1 @mycompany1
-  Scenario: S1 After login for the first time will be redirected to the suggested company list, which is matching with domain name
+  Scenario: After login for the first time will be redirected to the suggested company list, which is matching with domain name
     Given go to main web
     Given press sign in button
     When registration with new account and login

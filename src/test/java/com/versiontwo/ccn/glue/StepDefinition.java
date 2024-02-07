@@ -31,6 +31,7 @@ import com.versiontwo.ccn.driver.DriverSingleton;
 import com.versiontwo.ccn.scenariopage.CompanyPage;
 import com.versiontwo.ccn.scenariopage.LoginPage;
 import com.versiontwo.ccn.scenariopage.MailServiceMailinatorPage;
+import com.versiontwo.ccn.scenariopage.MailServiceYopmailPage;
 import com.versiontwo.ccn.scenariopage.RegisterPage;
 import com.versiontwo.ccn.scenariopage.SubscriptionPage;
 import com.versiontwo.ccn.utils.ConfigurationProperties;
@@ -56,6 +57,7 @@ public class StepDefinition {
 	private static LoginPage loginPage;
 	private static RegisterPage registerPage;
 	private static MailServiceMailinatorPage mailServiceMailinatorPOM;
+	private static MailServiceYopmailPage mailServiceYopmailPage;
 	private static CompanyPage myCompanyPOM;
 	private static SubscriptionPage subscriptionPage;
 	private String originalWindow = "";
@@ -78,6 +80,7 @@ public class StepDefinition {
 		registerPage = new RegisterPage();
 		mailServiceMailinatorPOM = new MailServiceMailinatorPage();
 		myCompanyPOM = new CompanyPage();
+		mailServiceYopmailPage = new MailServiceYopmailPage();
 		subscriptionPage = new SubscriptionPage();
 		extentReports.attachReporter(htmlreporter);
 		ScenarioTestCases[] tests = ScenarioTestCases.values();
@@ -95,12 +98,35 @@ public class StepDefinition {
 		extentTest.pass("Navigation to : " + Constants.URL_MAIN_WEB,
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	@Given("go to sqpp website")
+	public void go_to_sqpp_website() throws Exception {
+		driver.get(Constants.SQPP_PATH_URL);	
+		Thread.sleep(waitResponse);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		extentTest.log(Status.PASS, "Navigation to : " + Constants.SQPP_PATH_URL);
+		extentTest.pass("Navigation to : " + Constants.SQPP_PATH_URL,
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
 	@Given("^go to yopmail")
 	public void go_to_yopmail() throws Exception {
 		driver.get(Constants.YOPMAIL_SERVICE_URL);	
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		extentTest.log(Status.PASS, "go to yopmail : " + Constants.YOPMAIL_SERVICE_URL);
 		extentTest.pass("go to yopmail : " + Constants.YOPMAIL_SERVICE_URL,
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	@Then("^enter yopmail email to login")
+	public void enter_yopmail_email_to_login() throws Exception {
+		mailServiceYopmailPage.loginYopmail();
+		mailServiceYopmailPage.btnloginyopmail();
+		extentTest.pass("go to yopmail : " + Constants.YOPMAIL_SERVICE_URL,
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	@Then("open yopmail email {string}")
+	public void open_yopmail_email(String content) throws Exception {
+//		mailServiceYopmailPage.selectemailtoopen();
+		mailServiceYopmailPage.selectemailtoopendetail(content);
+		extentTest.pass("open yopmail email",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 	@Given("^accept cookie")

@@ -2,16 +2,17 @@ package com.versiontwo.ccn;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features",
 monochrome= true,
-plugin = {"pretty", "junit:target/JUnitReports/reportyopmail/reportyopmail.xml",
-		"json:target/JSONReports/reportyopmail/reportyopmail.json",
-"html:target/reportyopmail/HtmlReportsyopmail.html"},tags="@yopmail1")
-public class YopmailRunTest {
+plugin = {"pretty", "junit:target/JUnitReports/reportSqpp.xml",
+		"json:target/JSONReports/reportSqpp.json",
+"html:target/HtmlReportsSqpp.html"},tags="@Sqpp-1")
+public class SqppRunTest {
 
 	@Test
 	public void test() {
