@@ -1,6 +1,6 @@
 Feature: AWB Concierge Product Plan
 
-  @AWBConciergeplan-1 @e2e
+  @AWBConciergeplan-1 @e2e @AWBConcierge1
   Scenario Outline: Offline payment User level Subscribe "AWB Concierge" plan with "active" status, user count "1" billing cycle "-" and get email user side
     Given accept cookie
     When click initial sign in button
