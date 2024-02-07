@@ -181,7 +181,7 @@ Feature: My Company
   Scenario Outline: Verify Sorting data for column city on suggestion company ascending sorting
    	Given accept cookie
     When click initial sign in button
-    When input email <Email> and password <Password> and press sign in to continue login
+    When input email <email> and password <password> and press sign in to continue login
     And back to the main tab browser
     And go to my icon account menu "My Company"
     Then click Sorting data for column city on suggestion company ascending sorting
@@ -194,7 +194,7 @@ Feature: My Company
   Scenario Outline: Verify Sorting data for column city on suggestion company descending sorting
    	Given accept cookie
     When click initial sign in button
-    When input email <Email> and password <Password> and press sign in to continue login
+    When input email <email> and password <password> and press sign in to continue login
     And back to the main tab browser
     And go to my icon account menu "My Company"
     Then click Sorting data for column city on suggestion company descending sorting
@@ -1555,7 +1555,7 @@ Feature: My Company
 				  
 				  
 		@CreateMyCompany-54 @MyCompany @regression  @mycompany69
-	  Scenario Outline: able to remove all "pending accept status" by selecting the filter for that status, and able to see "amount users selected","äpprove" and "remove", click "remove" for remove all "pending approve" status
+	  Scenario Outline: able to remove all "pending accept status" by selecting the filter for that status, and able to see "amount users selected","ï¿½pprove" and "remove", click "remove" for remove all "pending approve" status
 	    Given go to main web
 	    Given press sign in button
 	    And input email <email> and password <password> and press sign in to continue login
@@ -1569,7 +1569,7 @@ Feature: My Company
 				  | qa-ccn-46551@mailinator.com        |CCNPegasus123 | My Company     				|
 				  
 		@CreateMyCompany-55 @MyCompany @regression  @mycompany70
-	  Scenario Outline: able to approve all "pending approve status" by selecting the filter for that status, and able to see "amount users selected","äpprove" and "remove", click "approve" for approve all "pending approve" status
+	  Scenario Outline: able to approve all "pending approve status" by selecting the filter for that status, and able to see "amount users selected","ï¿½pprove" and "remove", click "approve" for approve all "pending approve" status
 	    Given go to main web
 	    Given press sign in button
 	    And input email <email> and password <password> and press sign in to continue login
@@ -1599,7 +1599,7 @@ Feature: My Company
 				  | qa-ccn-46551@mailinator.com        |CCNPegasus123 | My Company     				|
 				  
 		@CreateMyCompany-57 @MyCompany @regression  @mycompany72
-	  Scenario Outline: able to remove all "pending accept status" by selecting the filter for that status, and able to see "amount users selected","äpprove" and "remove", click "remove" for remove all "pending approve" status
+	  Scenario Outline: able to remove all "pending accept status" by selecting the filter for that status, and able to see "amount users selected","ï¿½pprove" and "remove", click "remove" for remove all "pending approve" status
 	    Given go to main web
 	    Given press sign in button
 	    And input email <email> and password <password> and press sign in to continue login
@@ -1614,7 +1614,7 @@ Feature: My Company
 				  | qa-ccn-46551@mailinator.com        |CCNPegasus123 | My Company     				|
 				  
 		@CreateMyCompany-58 @MyCompany @regression  @mycompany73
-	  Scenario Outline: able to approve all "pending approve status" by selecting the filter for that status, and able to see "amount users selected","äpprove" and "remove", click "approve" for approve all "pending approve" status
+	  Scenario Outline: able to approve all "pending approve status" by selecting the filter for that status, and able to see "amount users selected","ï¿½pprove" and "remove", click "approve" for approve all "pending approve" status
 	    Given go to main web
 	    Given press sign in button
 	    And input email <email> and password <password> and press sign in to continue login

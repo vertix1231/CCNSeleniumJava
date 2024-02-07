@@ -13,10 +13,12 @@ import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -835,6 +837,16 @@ public class StepDefinition {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		Thread.sleep(longwaitResponse);
 		myCompanyPOM.myMenuAccount(menu);
+		extentTest.log(Status.PASS, "go to my icon account menu {string}");
+		extentTest.pass( "go to my icon account menu {string}",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("go to my icon account menuuu")
+	public void go_to_my_icon_account_menu_menu_men() throws Exception {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		Thread.sleep(longwaitResponse);
+		myCompanyPOM.clickCircleMenuAccount();
 		extentTest.log(Status.PASS, "go to my icon account menu {string}");
 		extentTest.pass( "go to my icon account menu {string}",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
@@ -1813,36 +1825,6 @@ public class StepDefinition {
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 
-
-
-
-
-	@Given("click Compliance and Documentation menu")
-	public void click_compliance_and_documentation_menu() {
-	   
-	}
-	@Given("Select plan in Compliance and Documentation {string}")
-	public void select_plan_in_compliance_and_documentation(String string) {
-	   
-	}
-	@Given("Press Subscribe checkbox for the {string} plan monthly subscription agreement")
-	public void press_subscribe_checkbox_for_the_plan_monthly_subscription_agreement(String string) {
-	    
-	}
-	@Given("Press Subscribe button for the {string} plan monthly subscription agreement")
-	public void press_subscribe_button_for_the_plan_monthly_subscription_agreement(String string) {
-	   
-	}
-	@Then("Validate subscription Successful for plan {string} pop up massage")
-	public void validate_subscription_successful_for_plan_pop_up_massage(String string) {
-	   
-	}
-
-
-
-
-
-
 	@Then("close browser")
 	public void close_browser() throws Exception {
 		extentTest.log(Status.PASS, "close browser");
@@ -1852,51 +1834,35 @@ public class StepDefinition {
 		driver.quit();
 	}
 	
-	@Given("{string} has subscribed a plan A at the beginning of this month with a subscription charge ${int}")
-	public void has_subscribed_a_plan_a_at_the_beginning_of_this_month_with_a_subscription_charge_$(String string, Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    
+
+	@When("UnSubscribe plan {string}")
+	public void un_subscribe_plan(String string) throws Exception {
+		
+	List<WebElement> rows = driver.findElements(By.xpath("//*[@id='cube-plan-list']/tbody/tr"));
+	int rowCount = rows.size();
+	System.out.println("Total number of rows in the table: " + rowCount);
+	
+	List<WebElement> column = driver.findElements(By.xpath("//*[@id='cube-plan-list']/tbody/tr"));
+	int columnCount = column.size();
+	System.out.println("Total number of column in the table: " + columnCount);
+	
+	for (int r = 1; r <= rowCount; r++) {
+	    for (int c = 1; c <= columnCount; c++) {
+	        String data = driver.findElement(By.xpath("//*[@id='cube-plan-list']//tr[" + r + "]/td[" + c + "]")).getText();
+	        System.out.println(data);
+	        
+	        if (data.contains(string)) {
+	            // Assuming td8 is the 8th column in the current row
+	            driver.findElement(By.xpath("//*[@id='cube-plan-list']//tr[" + r + "]/td[8]")).click();
+	        }
+	    }
 	}
-	@Given("{string} has subscribed a plan B at the beginning of this month with a subscription charge ${int}")
-	public void has_subscribed_a_plan_b_at_the_beginning_of_this_month_with_a_subscription_charge_$(String string, Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    
+	
+
 	}
-	@Given("{string} has subscribed a plan C at the beginning of this month with a subscription charge ${int}")
-	public void has_subscribed_a_plan_c_at_the_beginning_of_this_month_with_a_subscription_charge_$(String string, Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}
-	@When("PCN is set to {int}% of Subscription and applied to all products, countries, Cities,companies")
-	public void pcn_is_set_to_of_subscription_and_applied_to_all_products_countries_cities_companies(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}
-	@When("Minimum PCN charge is set to ${int}")
-	public void minimum_pcn_charge_is_set_to_$(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}
-	@When("PCN charge is calculated at {int}% of the each subscription")
-	public void pcn_charge_is_calculated_at_of_the_each_subscription(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}
-	@When("PCN charge is based on the previous month's subscription\\(s)")
-	public void pcn_charge_is_based_on_the_previous_month_s_subscription_s() {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}
-	@When("This is first month of the subscriptions of this company")
-	public void this_is_first_month_of_the_subscriptions_of_this_company() {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}
-	@Then("PCN charge for this is {int}")
-	public void pcn_charge_for_this_is(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}
+
+
+
 
 
 

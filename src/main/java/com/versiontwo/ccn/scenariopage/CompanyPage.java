@@ -430,13 +430,25 @@ public class CompanyPage {
 	@CacheLookup
 	private List<WebElement> dropdownCity;
 
-	@FindBy(xpath="//*[@id=\"toppage\"]/header/div[2]/div[2]/div[2]/div[2]/wc-login/div/div/div")
+	@FindBy(xpath="//div[@class='circle-initial letter-avatar bg-orange']")
 	@CacheLookup
 	private WebElement accountCircleIcon;
 	
-	@FindBy(xpath="//*[@id=\"toppage\"]/header/div[2]/div[2]/div[2]/div[2]/wc-login/div/div/div[1]/div[1]")
+	@FindBy(xpath="//*[@id=\"toppage\"]/header/div[2]/div[2]/div[2]/div[2]/wc-login/div/div/div[2]/div[2]/div")
 	@CacheLookup
 	private List<WebElement> lsMenuAccount;
+	
+	@FindBy(xpath="//div[@id=\"toppage\"]/header/div[2]/div[2]/div[2]/div[2]/wc-login/div/div/div[2]/div[2]/div")
+	@CacheLookup
+	private WebElement ClickMenuAccount;
+	
+	@FindBy(xpath="//a[@href='/portal/manage-subscription/']/span")
+	@CacheLookup
+	private WebElement ClickSubscribe;
+	
+	@FindBy(xpath="//*[@id=\"cube-plan-list\"]/tbody/tr[1]/td[8]")
+	@CacheLookup
+	private WebElement ClickUnSubscribe;
 	
 	public void inputCompanyNameOnMyCompany(String companyName) throws Exception{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -552,8 +564,8 @@ public class CompanyPage {
 //		driver.get("https://sandbox.cubeforall.com/portal/manage-subscription/");
 		clickAccountCircleIcon();
 		Thread.sleep(waitResponse);
-		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		switch (menu) {
 		case "My Portal":
 			lsMenuAccount.get(0).click();
@@ -576,6 +588,23 @@ public class CompanyPage {
 			break;
 		}
 	}
+	
+	public void clickCircleMenuAccount() throws Exception {
+		Thread.sleep(waitResponse);
+//		driver.get("https://sandbox.cubeforall.com/portal/manage-subscription/");
+		clickAccountCircleIcon();
+		Thread.sleep(waitResponse);
+		ClickMenuAccount.click();
+		Thread.sleep(waitResponse);
+		ClickSubscribe.click();
+		Thread.sleep(waitResponse);
+		
+		}
+	
+	public void clickUnsubscribeAWBConcierge() throws Exception {
+		
+		}
+		
 	public void pressJoinCompany(int position) throws Exception{
 		//		driver.findElements(btnJoinCompany).isDisplayed();
 

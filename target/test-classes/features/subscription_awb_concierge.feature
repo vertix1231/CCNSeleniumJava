@@ -1,6 +1,6 @@
 Feature: AWB Concierge Product Plan
 
-  @AWBConciergeplan-1 @e2e
+  @AWBConciergeplan-1 @e2e @AWBConcierge1
   Scenario Outline: Offline payment User level Subscribe "AWB Concierge" plan with "active" status, user count "1" billing cycle "-" and get email user side
     Given accept cookie
     When click initial sign in button
@@ -87,6 +87,20 @@ Feature: AWB Concierge Product Plan
     When input email <Email> and password <Password> and press sign in to continue login
     And back to the main tab browser
     And go to my icon account menu "My Subscriptions"
+    And UnSubscribe plan "<product>"
+
+    Examples: 
+      | Email                         | Password      | product       						 |
+      | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | Air Waybill Concierge      |
+      
+      
+    @UnsubscribeAWB2
+  	Scenario Outline: Offline payment Company member admin UnSubscribe "AWB Concierge" plan with "cancelled" status, user count "1" billing cycle "Expired on date" and get email user side
+    Given accept cookie
+    When click initial sign in button
+    When input email <Email> and password <Password> and press sign in to continue login
+    And back to the main tab browser
+    And go to my icon account menuuu
     And UnSubscribe plan "<product>"
     And open email mailinator after login
 
