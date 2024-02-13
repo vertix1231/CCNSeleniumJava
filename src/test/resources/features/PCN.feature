@@ -21,16 +21,61 @@ Discount can be applied across to the whole region/country/cities (configurable 
 Discount can be applied to the product plan by default
 
 	@PCN1
-  Scenario: S1 - Subscription of the first month. PCN Configuration:  set to 10% of each subscription, PCN applies to all products, countries, cities, companies.
-    Given "PM1-A" has subscribed a plan A at the beginning of this month with a subscription charge $40
-    And "PM2-A" has subscribed a plan B at the beginning of this month with a subscription charge $40
-    And "PM1-A" has subscribed a plan C at the beginning of this month with a subscription charge $50
-    When PCN is set to 10% of Subscription and applied to all products, countries, Cities,companies
-    And Minimum PCN charge is set to $20
-    And PCN charge is calculated at 10% of the each subscription
-    And PCN charge is based on the previous month's subscription(s)
-    And This is first month of the subscriptions of this company
-    Then PCN charge for this is 0
+  Scenario Outline: S1 - Subscription of the first month. PCN Configuration:  set to 10% of each subscription, PCN applies to all products, countries, cities, companies.
+    Given accept cookie
+    When click initial sign in button
+    When input email <email> and password <password> and press sign in to continue login
+    And back to the main tab browser
+    When "User A" click product tab to subscribe to product
+    And Select plan "Plan A" "<product>"
+    And Subscribe plan "<product>"
+    And go to my icon account menu "My Subscriptions"
+
+    Examples: 
+      | email                         | password      | product       |
+      | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | AWB Concierge | 
+      
+  @create_user_company_sg
+  Scenario Outline: create user
+    Given go to main web
+    Given press sign in button
+    And registration with new account and try login singapore
+    And will redirected to suggested company list which match with domain name of the users
+    When system didn't found the suggested company matched
+    And input company name "<companyName>" dynamics
+    And input company registration "<companyRegis>"
+    And input company type "<typeOfCompany>"
+    And input country "<country>"
+    And input city "<city>"
+    And theres button to create company with the status was enabled to create company
+    Then the user was able to create a new company
+    When press create company button
+    And input contact details IATA membership number "<iataNo>"
+    And input contact details CASS number "<cassNo>"
+    And input registered office address "<officeAddress>" for company detail
+    And input post code "<postCode>" for company detail
+    And input company email "<companyemail>" for company detail
+    And input mobile number detail company "<mobileNoCompany>" for company detail
+    And input mailing address complete from same as registered company address
+    And input contact details name "<name>"
+    And input contact details designation "<designation>"
+    And input contact details mobile no "<mobileNo>"
+    And input contact details email "<email>"
+    And press submit create company
+    Then will displayed pop up for post payment setup
+    And click proceed pop up button for creating company to the post payment
+    And click ok button from pop up confirmation that tells GIRO setup instructions has been sent to email
+    Then finally successfully to the setup post payment
+    And receive email notification giro setup
+    #main test 1
+    Given "User A" click product tab to subscribe to product
+    And Select plan "Plan A" "<product>"
+    And Subscribe plan "<product>"
+    And go to my icon account menu "My Subscriptions"
+    
+    Examples: 
+      | product                      | companyemail                | email                       | password      | companyName             | companyRegis   | typeOfCompany | country        | city | name     | designation | mobileNo     | iataNo   | cassNo   | officeAddress       | postCode | mobileNoCompany | product       |
+      | Bundle (AWB, BC) Non Company | qa-ccn-22869@mailinator.com | qa-ccn-22869@mailinator.com | CCNPegasus123 | mailinatorCCNPEGASUS_QA | CCNPEGASUS_QA1 | GSA           | SG - SINGAPORE | SIN  | gsa sg 1 | marketing   | 081234567891 | 00000001 | 11111111 | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge |
 
   Scenario: S2 - Subscription of the subsequent month (without new subscription). PCN Configuration:  set to 10% of each subscription; PCN applies to all products, countries, cities, companies.
     Given "PM1-A" has renewed a plan A at the beginning of this month with a subscription charge $40

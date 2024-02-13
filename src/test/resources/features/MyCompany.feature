@@ -77,7 +77,7 @@ Feature: My Company
   Scenario Outline: Verify Sorting data for column company name on suggestion company ascending sorting
    	Given accept cookie
     When click initial sign in button
-    When input email <Email> and password <Password> and press sign in to continue login
+    When input email <email> and password <password> and press sign in to continue login
     And back to the main tab browser
     And go to my icon account menu "My Company"
     Then click Sorting data for column company name on suggestion company ascending sorting

@@ -258,6 +258,16 @@ public class StepDefinition {
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 	
+	@And("input company name {string} dynamics")
+	public void inputCompanyNameDynamics(String companyName) throws Exception {
+		String companyNameInput = companyName+Constants.GENERATED_NUM;
+		registerPage.inputCompanyNameRegister(companyNameInput);
+		System.out.println(companyNameInput);
+		extentTest.log(Status.PASS, "input company name {string} on register page");
+		extentTest.pass( "input company name {string} on register page",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
 
 	@And("input contact number {string} on register page")
 	public void inputContactNumberOnRegisterPage(String contactNumber) throws Exception {
@@ -883,6 +893,15 @@ public class StepDefinition {
 		myCompanyPOM.inputCompanyNameOnMyCompany(compName);
 		extentTest.log(Status.PASS, "input company name {string}");
 		extentTest.pass( "input company name {string}",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("input company name dynamics")
+	public void inputCompanyNameDynamics() throws Exception {
+		Thread.sleep(waitResponse);
+		
+		extentTest.log(Status.PASS, "input company name");
+		extentTest.pass( "input company name",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 	
@@ -1618,6 +1637,14 @@ public class StepDefinition {
 		extentTest.pass( "{string} click product tab to subscribe to product",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	
+	@And("{string} click product tab to subscribe a product")
+	public void user_click_product_tab_to_subscribe_a_product(String user) throws Exception {
+		subscriptionPage.clickProductTabFromManageSubscribtion();
+		extentTest.log(Status.PASS, "{string} click product tab to subscribe to product");
+		extentTest.pass( "{string} click product tab to subscribe to product",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
 
 	@Then("Validate subscription Successful for plan {string} {string} pop up massage")
 	public void validate_subscription_successful_for_plan_pop_up_massage(String string, String string2) throws Exception {
@@ -1637,6 +1664,15 @@ public class StepDefinition {
 		extentTest.pass( "Select plan {string} {string}",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	
+	@And("Select second plan {string} {string}")
+	public void select_second_plan(String string,String productB) throws Exception {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		subscriptionPage.selectPlanProduct(productB);
+		extentTest.log(Status.PASS, "Select plan {string} {string}");
+		extentTest.pass( "Select plan {string} {string}",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
 
 	@And("Subscribe plan {string}")
 	public void subscribeplan_plan(String product) throws Exception {
@@ -1644,6 +1680,24 @@ public class StepDefinition {
 		subscriptionPage.subscribeplan(product);
 		extentTest.log(Status.PASS, "Subscribe plan {string}");
 		extentTest.pass( "Subscribe plan {string}",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("Subscribe first plan {string}")
+	public void subscribe_first_plan(String product) throws Exception {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		subscriptionPage.subscribeplan(product);
+		extentTest.log(Status.PASS, "Subscribe first plan {string}");
+		extentTest.pass( "Subscribe first plan {string}",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("Subscribe second plan {string}")
+	public void subscribe_secondplan_plan(String productB) throws Exception {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		subscriptionPage.subscribesecondplan(productB);
+		extentTest.log(Status.PASS, "Subscribe second plan {string}");
+		extentTest.pass( "Subscribe second plan {string}",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 	
@@ -1859,6 +1913,14 @@ public class StepDefinition {
 	}
 	
 
+	}
+	
+	@And("back to Cubforall from payment page")
+	public void backtoCubforallfrompaymentpage() throws Exception {
+		subscriptionPage.backtoCubeforallfrompayment();
+		extentTest.log(Status.PASS, "back to Cubeforall");
+		extentTest.pass( "back to Cubeforall",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 
 
