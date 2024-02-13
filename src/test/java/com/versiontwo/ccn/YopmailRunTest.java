@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 monochrome= true,
 plugin = {"pretty", "junit:target/JUnitReports/reportlogin.xml",
 		"json:target/JSONReports/reportlogin.json",
-"html:target/HtmlReportslogin.html"},tags="@yopmail1")
+"html:target/HtmlReportslogin.html"},tags="@postpayment_sg")
 public class YopmailRunTest {
 
 	@Test

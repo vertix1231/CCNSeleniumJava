@@ -19,7 +19,7 @@ public class Constants {
 	
 	//constant mas wisnu
     public static final String DIR = System.getProperty("user.dir");
-    public static String GENERATED_NUM = RandomStringUtils.randomNumeric(5);
+    public static String GENERATED_NUM = RandomStringUtils.randomNumeric(8);
     public static String EMAIL = "";
     public static String MAIL_SERVICE = "";
     public static String MAIL_SERVICE_URL = "https://www.mailinator.com/";

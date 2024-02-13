@@ -40,7 +40,7 @@ Feature: AWB Concierge Product Plan
     And Select plan "Plan A" "<product>"
     And Subscribe plan "<product>"
     And go to my icon account menu "My Subscriptions"
-     And open email mailinator after login
+    And open email mailinator after login
 
     Examples: 
       | Email                         | Password      | product       |
@@ -71,7 +71,7 @@ Feature: AWB Concierge Product Plan
     And Select plan "Plan A" "<product>"
     And Subscribe plan "<product>"
     And go to my icon account menu "My Subscriptions"
-     And open email mailinator after login
+    And open email mailinator after login
 
 
     Examples: 

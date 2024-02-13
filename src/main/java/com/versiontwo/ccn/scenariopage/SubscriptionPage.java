@@ -27,6 +27,10 @@ public class SubscriptionPage {
 	@FindBy(xpath = "//*[@id=\"menu-item-629\"]/span/a")
 	@CacheLookup
 	private WebElement productTab;
+	
+	@FindBy(xpath = "//a[contains(@href, 'sandbox.cubeforall.com/freight-forwarder/freight-operations-management/')]")
+	@CacheLookup
+	private WebElement productTabFromManageSubscribtion;
 
 	@FindBy(xpath = "//*[@id=\"nav\"]/ul/li[11]/a")
 	@CacheLookup
@@ -82,11 +86,26 @@ public class SubscriptionPage {
 	@FindBy(xpath = "//*[@id=\"nav\"]/ul/li")
 	@CacheLookup
 	private List<WebElement> lsPlanProduct;
+	
+	// Product
+	@FindBy(xpath = "//a[text()='Lead Freight Solutions']")
+	@CacheLookup
+	private WebElement lfsProduct;
 
 	@FindBy(xpath = "//*[@id=\"cube-subscribe-modal-btn-6566e1f8669e862c02256095\"]")
 	@CacheLookup
 	private WebElement btnSuccesSubscribeLFSTrial;
-
+	
+	
+	@FindBy(xpath = "//input[@id='cube-subscribe-btn-checkbox-6389c85e089c75ff462d9911']")
+	@CacheLookup
+	private WebElement inputCheckboxSubscribeMulti;
+	
+	@FindBy(xpath = "//a[@href='https://sandbox.cubeforall.com/portal/manage-subscription']")
+	@CacheLookup
+	private WebElement backfrompayment;
+	
+	
 	private SearchContext shadowDomcpsubscribe() throws Exception {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(waitResponse);
@@ -97,11 +116,20 @@ public class SubscriptionPage {
 	private SearchContext shadowDomcpsubscribesecond() throws Exception {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(waitResponse);
-		WebElement root = driver.findElement(By.tagName("cp-subscribe-button"));
+		WebElement root = driver.findElement(By.xpath("(//cp-subscribe-button[@cp_service_id='2ccbe74c-493b-47a4-8dee-80bdb147e895'])[2]"));
 //		SearchContext shadowDomcpsubscribe = (SearchContext) js.executeScript("return arguments[1].shadowRoot", root);
 		SearchContext shadowDomcpsubscribe = (SearchContext) js.executeScript("return arguments[0].shadowRoot", root);
 		return shadowDomcpsubscribe;
 	}
+	
+//	private SearchContext backfromsubscribelfsmulti() throws Exception {
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		Thread.sleep(waitResponse);
+//		WebElement root = driver.findElement(By.tagName("cp-subscribe-button"));
+////		SearchContext shadowDomcpsubscribe = (SearchContext) js.executeScript("return arguments[1].shadowRoot", root);
+//		SearchContext shadowDomcpsubscribe = (SearchContext) js.executeScript("return arguments[0].shadowRoot", root);
+//		return shadowDomcpsubscribe;
+//	}
 
 	private void subscribelfstrianonedayplan() throws Exception {
 		clickchckBoxComplimentarySubscribelfsfreetrial();
@@ -507,9 +535,31 @@ public class SubscriptionPage {
 			inputlfsmultiplan();
 			clickBtnSubscribelfsmultiplan();
 			inputCompleteFillSubscriberPayment();
-			
-
 		}
+		
+		private void subscribelfsmultiplanupgrade() throws Exception {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			js.executeScript("window.scrollBy(0,900)", "");
+			clickchckBoxlfsmultiplan();
+			inputlfsmultiplan();
+			clickBtnSubscribelfsmultiplan();
+			Thread.sleep(3000);
+//			clickBtnBackSubscribelfsmultiplan();
+		}
+		
+		private void subscribelfsmultiplandowngrade() throws Exception {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			js.executeScript("window.scrollBy(0,900)", "");
+			clickchckBoxlfsmultiplan();
+			inputlfsmultiplandowngrade();
+			clickBtnSubscribelfsmultiplan();
+			Thread.sleep(3000);
+//			clickBtnBackSubscribelfsmultiplan();
+		}
+		
+		
 
 		public void clickchckBoxlfsmultiplan() throws Exception {
 			Thread.sleep(waitResponse);
@@ -531,6 +581,17 @@ public class SubscriptionPage {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 			btnComplimentarySubscribee.click();
 		}
+		
+//		public void clickBtnBackSubscribelfsmultiplan() throws Exception {
+//			Thread.sleep(waitResponse);
+//			WebElement btnComplimentarySubscribee = backfromsubscribelfsmulti()
+//					.findElement(By.cssSelector("h1.Header-businessLink-name.Text.Text-color--gray800.Text-fontSize--14.Text-fontWeight--500.Text--truncate"));
+//			System.out.println("clickBtnBackSubscribelfsmultiplan is display: " + btnComplimentarySubscribee.isDisplayed());
+//			btnComplimentarySubscribee.isDisplayed();
+//			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+//			btnComplimentarySubscribee.click();
+//		}
+		
 		public void inputlfsmultiplan() throws Exception {
 			Thread.sleep(waitResponse);
 			WebElement btnComplimentarySubscribee = shadowDomcpsubscribesecond()
@@ -538,7 +599,18 @@ public class SubscriptionPage {
 			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
 			btnComplimentarySubscribee.isDisplayed();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
-			btnComplimentarySubscribee.sendKeys("3");
+			btnComplimentarySubscribee.sendKeys("25");
+			;
+		}
+		
+		public void inputlfsmultiplandowngrade() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement btnComplimentarySubscribee = shadowDomcpsubscribesecond()
+					.findElement(By.cssSelector("input#cube-subscribe-btn-input-6389c85e089c75ff462d9911"));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
+			btnComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			btnComplimentarySubscribee.sendKeys("13");
 			;
 		}
 		
@@ -785,6 +857,9 @@ public class SubscriptionPage {
 		case "Freight Management System - LFS Multi":
 			lsPlanProduct.get(4).click();
 			break;
+		case "Freight Management System - LFS Multi Upgrade":
+			lsPlanProduct.get(4).click();
+			break;
 		case "Quotation Request":
 			lsPlanProduct.get(5).click();
 			break;
@@ -824,6 +899,27 @@ public class SubscriptionPage {
 		case "Air Line Tariff Query":
 			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
 //			driver.get("https://cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
+			break;
+		default:
+			break;
+		}
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		js.executeScript("window.scrollBy(0,300)", "");
+	}
+	
+	public void selectPlanProduct(String productB) throws Exception {
+		Thread.sleep(waitResponse);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		// js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+		js.executeScript("window.scrollBy(0,215)", "");
+		// js.executeScript("arguments[0].scrollIntoView();",
+		// bundlecompanylevelaWBConciergeLFS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		switch (productB) {
+		case "Freight Management System - LFS Multi Downgrade":
+			lfsProduct.click();
 			break;
 		default:
 			break;
@@ -893,6 +989,19 @@ public class SubscriptionPage {
 			break;
 		case "Air Line Tariff Query":
 			subscribeairlinetariffquery();
+			break;
+		case "Freight Management System - LFS Multi Upgrade":
+			subscribelfsmultiplanupgrade();
+			break;
+		default:
+			break;
+		}
+	}
+	
+	public void subscribesecondplan(String productB) throws Exception {
+		switch (productB) {
+		case "Freight Management System - LFS Multi Downgrade":
+			subscribelfsmultiplandowngrade();
 			break;
 		default:
 			break;
@@ -1085,6 +1194,13 @@ public class SubscriptionPage {
 		Thread.sleep(longwaitResponse);
 		productTab.click();
 	}
+	
+	public void clickProductTabFromManageSubscribtion() throws Exception {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		driver.switchTo().defaultContent();
+		Thread.sleep(waitResponse);
+		productTabFromManageSubscribtion.click();
+	}
 
 	public void inputCompleteFillSubscriberPayment() throws Exception {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
@@ -1202,5 +1318,10 @@ public class SubscriptionPage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		js.executeScript("window.scrollBy(0,300)", "");
 	}
+	
+    public void backtoCubeforallfrompayment() throws Exception{
+    	Thread.sleep(waitResponse);
+    	backfrompayment.click();
+    }
 
 }

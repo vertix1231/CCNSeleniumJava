@@ -29,7 +29,7 @@ public class RegisterPage {
     By txtConfirmNewPasswordRegister = By.xpath("//input[@id=\"reenterPassword\"]");
     
     By txtDisplayNameRegister = By.id("displayName");
-    By txtCompanyNameRegister = By.id("extension_Company");
+    By txtCompanyNameRegister = By.id("cube-company-name");
     By txtContactNumberRegister = By.id("extension_ContactNo");
     By dropdownCityRegister = By.id("city");
     By dropdownCountryRegister = By.id("extension_CountryCode");

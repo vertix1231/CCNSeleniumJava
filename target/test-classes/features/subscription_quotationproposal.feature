@@ -14,7 +14,7 @@ Feature: Quotation Proposal Product Plan
 
     Examples: 
       | Email                         | Password      | product       |
-      | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | Quotation Proposal |
+      | chqa-ccn-72523@mailinator.com | CCNPegasus123 | Quotation Proposal |
  
    @QuotationProposalplan @e2e
   Scenario Outline: Offline payment User level UnSubscribe "Quotation Proposal" plan with "cancelled" status, user count "1" billing cycle "Expired on date" and get email user side
