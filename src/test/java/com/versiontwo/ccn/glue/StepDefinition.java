@@ -33,7 +33,9 @@ import com.versiontwo.ccn.driver.DriverSingleton;
 import com.versiontwo.ccn.scenariopage.CompanyPage;
 import com.versiontwo.ccn.scenariopage.LoginPage;
 import com.versiontwo.ccn.scenariopage.MailServiceMailinatorPage;
+import com.versiontwo.ccn.scenariopage.MailServiceYopmailPage;
 import com.versiontwo.ccn.scenariopage.RegisterPage;
+import com.versiontwo.ccn.scenariopage.Sqpp;
 import com.versiontwo.ccn.scenariopage.SubscriptionPage;
 import com.versiontwo.ccn.utils.ConfigurationProperties;
 import com.versiontwo.ccn.utils.Constants;
@@ -58,6 +60,7 @@ public class StepDefinition {
 	private static LoginPage loginPage;
 	private static RegisterPage registerPage;
 	private static MailServiceMailinatorPage mailServiceMailinatorPOM;
+	private static MailServiceYopmailPage mailServiceYopmailPage;
 	private static CompanyPage myCompanyPOM;
 	private static SubscriptionPage subscriptionPage;
 	private String originalWindow = "";
@@ -66,6 +69,10 @@ public class StepDefinition {
 	private int medwaitResponse=7000;
 	private int longwaitResponse=10000;
 	private String registerWindow = "";
+	private static Sqpp sqpp;
+	private String sqppwindows="";
+	private String originsqppwindows="";
+	private String emailSQPP="";
 
 
 	@Autowired
@@ -80,7 +87,9 @@ public class StepDefinition {
 		registerPage = new RegisterPage();
 		mailServiceMailinatorPOM = new MailServiceMailinatorPage();
 		myCompanyPOM = new CompanyPage();
+		mailServiceYopmailPage = new MailServiceYopmailPage();
 		subscriptionPage = new SubscriptionPage();
+		sqpp = new Sqpp();
 		extentReports.attachReporter(htmlreporter);
 		ScenarioTestCases[] tests = ScenarioTestCases.values();
 		extentTest = extentReports.createTest(tests[UtilsTest.scenariotestcount].getScenarioTestName());
@@ -99,7 +108,8 @@ public class StepDefinition {
 	}
 	@Given("^go to yopmail")
 	public void go_to_yopmail() throws Exception {
-		driver.get(Constants.YOPMAIL_SERVICE_URL);	
+		driver.switchTo().newWindow(WindowType.TAB);
+		driver.get(Constants.YOPMAIL_SERVICE_URL);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		extentTest.log(Status.PASS, "go to yopmail : " + Constants.YOPMAIL_SERVICE_URL);
 		extentTest.pass("go to yopmail : " + Constants.YOPMAIL_SERVICE_URL,
@@ -1922,9 +1932,150 @@ public class StepDefinition {
 		extentTest.pass( "back to Cubeforall",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	
 
+	@Then("enter yopmail email to register")
+	public void enter_yopmail_email_to_register() throws Exception {
+		String email = emailSQPP;
+		mailServiceYopmailPage.loginYopmail(email);
+		mailServiceYopmailPage.btnloginyopmail();
+		extentTest.pass("go to yopmail : " + Constants.YOPMAIL_SERVICE_URL,
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@Then("enter yopmail email to login {string}")
+	public void enter_yopmail_email_to_login(String email) throws Exception {
+		mailServiceYopmailPage.loginYopmail(email);
+		mailServiceYopmailPage.btnloginyopmail();
+		extentTest.pass("go to yopmail : " + Constants.YOPMAIL_SERVICE_URL,
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
 
+	@Then("open yopmail email {string}")
+	public void open_yopmail_email(String content) throws Exception {
+//		mailServiceYopmailPage.selectemailtoopen();
+		mailServiceYopmailPage.selectemailtoopendetail(content);
+		extentTest.pass("open yopmail email",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+		
+//		openNewTabAndOpenMailinator();
+//		getTheEmailVerificationAndExtractTheVerificationCodesg();
+//		closeTabAndBackToRegisterPage();
+//		inputVerificationCodeOnRegisterPage();
+//		pressVerificationCodeButtonOnRegisterPage();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+//		pressCreateAccountOnRegisterPage();
+//		backToTheMainTabBrowser();
+	}
 
+	@Given("go to sqpp website")
+	public void go_to_sqpp_website() throws Exception {
+		Thread.sleep(10000);
+		driver.get(Constants.SQPP_PATH_URL);
+		Thread.sleep(waitResponse);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		extentTest.log(Status.PASS, "Navigation to : " + Constants.SQPP_PATH_URL);
+		extentTest.pass("Navigation to : " + Constants.SQPP_PATH_URL,
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+
+	@Given("click member login sqpp")
+	public void click_member_login_sqpp() throws Exception {
+		Thread.sleep(waitResponse);
+		sqpp.loginsqpp();
+		Thread.sleep(waitResponse);
+		sqpp.changeSigninWindowsqpp();
+		extentTest.log(Status.PASS, "click member login sqpp");
+		extentTest.pass("click member login sqpp",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	@Given("input login sqpp email {string} and password {string}")
+	public void input_login_sqpp(String email,String password) throws Exception {
+		Thread.sleep(waitResponse);
+		sqpp.inputloginsqpp(email,password);
+		extentTest.log(Status.PASS, "input login sqpp");
+		extentTest.pass("input login sqpp",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+//		driver.switchTo().newWindow(WindowType.WINDOW);
+		Thread.sleep(waitResponse);
+//		driver.get(Constants.YOPMAIL_SERVICE_URL);
+	}
+	
+//	get verification code sqpp
+	@Given("get verification code sqpp")
+	public void get_verification_code_sqpp() throws Exception {
+		Thread.sleep(waitResponse);
+		sqpp.getVerificationCodesqpp();
+		Thread.sleep(waitResponse);
+		System.out.println(Constants.VERIFICATION_CODE_SQPP);
+//		sqpp.changeSigninWindowsqpp();
+		
+		extentTest.log(Status.PASS, "click member login sqpp");
+		extentTest.pass("click member login sqpp",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+//	
+	@And("back to login page after get verification code sqpp")
+	public void backtologinpageaftergetverificationcodesqpp() throws Exception {
+		sqppwindows=sqpp.sqppwindows;
+		driver.close();
+		System.out.println(sqppwindows);
+		driver.switchTo().window(sqppwindows);
+		sqpp.inputverifcodeaftergetfromemail();
+		extentTest.log(Status.PASS, "close tab and back to register page");
+		extentTest.pass("close tab and back to register page",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	@And("back to login page after get verification code sqpp registration")
+	public void backtologinpageaftergetverificationcodesqppregistration() throws Exception {
+		sqppwindows=sqpp.sqppwindows;
+		driver.close();
+		System.out.println(sqppwindows);
+		driver.switchTo().window(sqppwindows);
+		sqpp.inputverifcodeaftergetfromemailregis();
+		extentTest.log(Status.PASS, "close tab and back to register page");
+		extentTest.pass("close tab and back to register page",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	@And("continue sign in sqpp")
+	public void continue_sign_in_sqpp() throws Exception {
+		sqpp.continuesigninsqpp();
+		extentTest.log(Status.PASS, "continue sign in sqpp");
+		extentTest.pass("continue sign in sqpp",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("click sign up sqpp")
+	public void clicksignupsqpp() throws Exception {
+		Thread.sleep(waitResponse);
+		emailSQPP = Constants.FULL_EMAIL_SQPP;
+		sqpp.signupsqpp(emailSQPP);
+		extentTest.log(Status.PASS, "click sign up sqpp");
+		extentTest.pass("click sign up sqpp",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+
+	@And("continue sign up sqpp")
+	public void continue_sign_up_sqpp() throws Exception {
+		sqpp.inputverifcodeaftergetfromemailregis();
+		extentTest.log(Status.PASS, "continue sign up sqpp");
+		extentTest.pass("continue sign up sqpp",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+//	
+	
+	@And("click agent managament sqpp")
+	public void clickagentmanagamentsqpp() throws Exception {
+		originsqppwindows = sqpp.originsqppwindows;
+		driver.switchTo().window(originsqppwindows);
+//		sqpp.iconmenusqpp();
+		Thread.sleep(waitResponse);
+		driver.get("https://ppd-siacargo.ccnexchange.com/portal_management/agent-management");
+		extentTest.log(Status.PASS, "click agent managament sqpp");
+		extentTest.pass("click agent managament sqpp",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
 
 
 
