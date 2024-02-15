@@ -21,61 +21,54 @@ Discount can be applied across to the whole region/country/cities (configurable 
 Discount can be applied to the product plan by default
 
 	@PCN1
-  Scenario Outline: S1 - Subscription of the first month. PCN Configuration:  set to 10% of each subscription, PCN applies to all products, countries, cities, companies.
+  Scenario Outline: S1 - Subscription of the first month. 2 PM in the same Company. PCN Configuration:  set to 10% of each subscription, PCN applies to all products, countries, cities, companies.
     Given accept cookie
     When click initial sign in button
     When input email <email> and password <password> and press sign in to continue login
     And back to the main tab browser
-    When "User A" click product tab to subscribe to product
+    When "PM 1 - A" click product tab to subscribe to product
     And Select plan "Plan A" "<product>"
     And Subscribe plan "<product>"
-    And go to my icon account menu "My Subscriptions"
+    And input the complete subscriber payment form
+    And open email mailinator to cek the charges
+    When "PM 1 - A" click product tab to subscribe to product
+    And Select plan "Plan B" "<productB>"
+    And Subscribe plan "<productB>"
+    And input the complete subscriber payment form
+    And open email mailinator to cek the charges
+    And go to my icon account menu "Sign Out"
+    Given accept cookie
+    When click initial sign in button
+    When input email <email2> and password <password2> and press sign in to continue login
+    And back to the main tab browser
+    When "PM 1 - A" click product tab to subscribe to product
+    And Select plan "Plan A" "<product>"
+    And Subscribe plan "<product>"
+    And input the complete subscriber payment form
+    And open email mailinator to cek the charges
+    
+
 
     Examples: 
-      | email                         | password      | product       |
-      | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | AWB Concierge | 
+      | email                         | password      | product       					  | email2                        | password2     | product       					  | 
+      | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | LEAD Freight Solutions    | sgqa-ccn-72921@mailinator.com | CCNPegasus123 | LEAD Freight Solutions    |
       
-  @create_user_company_sg
-  Scenario Outline: create user
-    Given go to main web
-    Given press sign in button
-    And registration with new account and try login singapore
-    And will redirected to suggested company list which match with domain name of the users
-    When system didn't found the suggested company matched
-    And input company name "<companyName>" dynamics
-    And input company registration "<companyRegis>"
-    And input company type "<typeOfCompany>"
-    And input country "<country>"
-    And input city "<city>"
-    And theres button to create company with the status was enabled to create company
-    Then the user was able to create a new company
-    When press create company button
-    And input contact details IATA membership number "<iataNo>"
-    And input contact details CASS number "<cassNo>"
-    And input registered office address "<officeAddress>" for company detail
-    And input post code "<postCode>" for company detail
-    And input company email "<companyemail>" for company detail
-    And input mobile number detail company "<mobileNoCompany>" for company detail
-    And input mailing address complete from same as registered company address
-    And input contact details name "<name>"
-    And input contact details designation "<designation>"
-    And input contact details mobile no "<mobileNo>"
-    And input contact details email "<email>"
-    And press submit create company
-    Then will displayed pop up for post payment setup
-    And click proceed pop up button for creating company to the post payment
-    And click ok button from pop up confirmation that tells GIRO setup instructions has been sent to email
-    Then finally successfully to the setup post payment
-    And receive email notification giro setup
-    #main test 1
+  @PCN1
+  Scenario Outline: S1 - Subscription of the first month. PCN Configuration:  set to 10% of each subscription, PCN applies to all products, countries, cities, companies.
+    Given accept cookie
+    When click initial sign in button
+    When input email <Email> and password <Password> and press sign in to continue login
+    And back to the main tab browser
     Given "User A" click product tab to subscribe to product
     And Select plan "Plan A" "<product>"
     And Subscribe plan "<product>"
     And go to my icon account menu "My Subscriptions"
-    
+     And open email mailinator after login
+
+
     Examples: 
-      | product                      | companyemail                | email                       | password      | companyName             | companyRegis   | typeOfCompany | country        | city | name     | designation | mobileNo     | iataNo   | cassNo   | officeAddress       | postCode | mobileNoCompany | product       |
-      | Bundle (AWB, BC) Non Company | qa-ccn-22869@mailinator.com | qa-ccn-22869@mailinator.com | CCNPegasus123 | mailinatorCCNPEGASUS_QA | CCNPEGASUS_QA1 | GSA           | SG - SINGAPORE | SIN  | gsa sg 1 | marketing   | 081234567891 | 00000001 | 11111111 | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge |
+      | Email                         | Password      | product       |
+      | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | Air Line Tariff Query |
 
   Scenario: S2 - Subscription of the subsequent month (without new subscription). PCN Configuration:  set to 10% of each subscription; PCN applies to all products, countries, cities, companies.
     Given "PM1-A" has renewed a plan A at the beginning of this month with a subscription charge $40
