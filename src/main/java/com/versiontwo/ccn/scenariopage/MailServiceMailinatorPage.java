@@ -18,7 +18,7 @@ public class MailServiceMailinatorPage {
 	By txtSearch = By.id("search");
 	By emailOnLists = By.xpath("//td[contains(.,'CUBEforall by CCN account email verification code')]");
 	By emailVerification = By.xpath("//span[@id='BodyPlaceholder_UserVerificationEmailBodySentence2']");
-
+	
 	public void getVerificationCode(){
 		// search mail on mailinator
 		driver.findElement(txtSearch).clear();

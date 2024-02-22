@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="61.257">
-    <testcase classname="My Company" name="S1 After login for the first time will be redirected to the suggested company list, which is matching with domain name" time="60.488">
-        <system-out><![CDATA[Given go to main web........................................................passed
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="14.179">
+    <testcase classname="My Company" name="S1 After login for the first time will be redirected to the suggested company list, which is matching with domain name" time="13.601">
+        <failure message="element click intercepted: Element &lt;a id=&quot;createAccount&quot; tabindex=&quot;1&quot; href=&quot;/ccnssoppd.onmicrosoft.com/B2C_1A_SignUp_SignInNewUserSyn/api/CombinedSigninAndSignup/unified?local=signup&amp;amp;csrf_token=VURsckJxMFcwS3l2T1lXdzgxb1dSOEtHR282Si9ncmpzNUw4YnRCWitZUTNVNWhKalM3N3pSUTRhVlpmdWh4cDk0Q3EvTXdnNUZvWDY2WmRxQVcrbVE9PTsyMDI0LTAyLTIyVDExOjQ5OjA1LjQyNTM4NzFaO0Z0VG0zaFYrUlRQcHdoa1l5bVJBRXc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;amp;tx=StateProperties=eyJUSUQiOiJlNDBkNjdmYy01ZTA0LTRkZTctYjEwZi05MTgyZDA5OWE4NWMifQ&amp;amp;p=B2C_1A_SignUp_SignInNewUserSyn&quot;&gt;...&lt;/a&gt; is not clickable at point (268, 430). Other element would receive the click: &lt;div id=&quot;background_branding_container&quot; data-tenant-branding-background-color=&quot;true&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=121.0.6167.185)&#10;Build info: version: '4.17.0', revision: 'e52b1be057*'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [45c785d85d311580efb5186926017039, clickElement {id=C489851406E47A8D188F0BC9241B6CBE_element_7}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.85 (3f98d690ad7e..., userDataDir: C:\Users\rofik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52574}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52574/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on windows (45c785d85d311580efb5186926017039)] -&gt; xpath: //*[@id='createAccount']]&#10;Session ID: 45c785d85d311580efb5186926017039" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[Given go to main web........................................................passed
 Given press sign in button..................................................passed
-When registration with new account and login................................passed
-Then will redirected to suggested company list which match with domain name of the users.passed
-]]></system-out>
+When registration with new account and login................................failed
+Then will redirected to suggested company list which match with domain name of the users.skipped
+
+StackTrace:
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a id="createAccount" tabindex="1" href="/ccnssoppd.onmicrosoft.com/B2C_1A_SignUp_SignInNewUserSyn/api/CombinedSigninAndSignup/unified?local=signup&amp;csrf_token=VURsckJxMFcwS3l2T1lXdzgxb1dSOEtHR282Si9ncmpzNUw4YnRCWitZUTNVNWhKalM3N3pSUTRhVlpmdWh4cDk0Q3EvTXdnNUZvWDY2WmRxQVcrbVE9PTsyMDI0LTAyLTIyVDExOjQ5OjA1LjQyNTM4NzFaO0Z0VG0zaFYrUlRQcHdoa1l5bVJBRXc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiJlNDBkNjdmYy01ZTA0LTRkZTctYjEwZi05MTgyZDA5OWE4NWMifQ&amp;p=B2C_1A_SignUp_SignInNewUserSyn">...</a> is not clickable at point (268, 430). Other element would receive the click: <div id="background_branding_container" data-tenant-branding-background-color="true">...</div>
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.17.0', revision: 'e52b1be057*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [45c785d85d311580efb5186926017039, clickElement {id=C489851406E47A8D188F0BC9241B6CBE_element_7}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.85 (3f98d690ad7e..., userDataDir: C:\Users\rofik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52574}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52574/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (45c785d85d311580efb5186926017039)] -> xpath: //*[@id='createAccount']]
+Session ID: 45c785d85d311580efb5186926017039
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:134)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at com.versiontwo.ccn.scenariopage.RegisterPage.pressSignUpNow(RegisterPage.java:46)
+	at com.versiontwo.ccn.glue.StepDefinition.pressSignUpNowButton(StepDefinition.java:206)
+	at com.versiontwo.ccn.glue.StepDefinition.registrationWithNewAccountAndLogin(StepDefinition.java:359)
+	at ✽.registration with new account and login(file:///C:/Users/rofik/git/CCNSeleniumJava/src/test/resources/features/MyCompany.feature:14)
+]]></failure>
     </testcase>
 </testsuite>

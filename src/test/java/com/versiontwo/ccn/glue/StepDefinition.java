@@ -143,7 +143,7 @@ public class StepDefinition {
 	@Given("press sign in button")
 	public void clickSignInButton() throws Exception {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
-		loginPage.pressAcceptCookies();
+//		loginPage.pressAcceptCookies();
 		originalWindow = driver.getWindowHandle();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		loginPage.pressSignInOnTheHomepage();
@@ -2087,8 +2087,8 @@ public class StepDefinition {
 		inputContactNumberOnRegisterPage(Constants.GENERATED_NUM); 
 		selectCityOnRegisterPage(city); 
 		selectCountryOnRegisterPage(country);
-		openNewTabAndOpenMailinator();
-		getTheEmailVerificationAndExtractTheVerificationCodemy();
+		openNewTabAndOpenYopmail();
+		getTheEmailVerificationAndExtractTheVerificationCodemyYopmail();
 		closeTabAndBackToRegisterPage();
 		inputVerificationCodeOnRegisterPage();
 		pressVerificationCodeButtonOnRegisterPage();
@@ -2111,6 +2111,7 @@ public class StepDefinition {
 		selectCityOnRegisterPage(city); 
 		selectCountryOnRegisterPage(country);
 		openNewTabAndOpenMailinator();
+		Thread.sleep(longwaitResponse);
 		getTheEmailVerificationAndExtractTheVerificationCodeuae();
 		closeTabAndBackToRegisterPage();
 		inputVerificationCodeOnRegisterPage();
@@ -2172,6 +2173,15 @@ public class StepDefinition {
 	@And("get the email verification and extract the verification code malaysia")
 	public void getTheEmailVerificationAndExtractTheVerificationCodemy() throws Exception {
 		mailServiceMailinatorPOM.getVerificationCodemy();
+		//		mailServiceMailinatorPOM.getVerificationCode("qa-ccn-04346@mailinator.com");
+		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
+		extentTest.pass( "get the email verification and extract the verification code",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("get the email verification and extract the verification code malaysia yopmail")
+	public void getTheEmailVerificationAndExtractTheVerificationCodemyYopmail() throws Exception {
+		mailServiceYopmailPage.getVerificationCodemy();
 		//		mailServiceMailinatorPOM.getVerificationCode("qa-ccn-04346@mailinator.com");
 		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
 		extentTest.pass( "get the email verification and extract the verification code",

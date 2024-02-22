@@ -68,6 +68,20 @@ public class MailServiceYopmailPage {
 		String getEmailText = driver.findElement(emailVerification).getText();
 		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
 	}
+	
+	public void getVerificationCodemy(){
+		// search mail on mailinator
+		driver.findElement(txtSearch).clear();
+		driver.findElement(txtSearch).sendKeys(Constants.FULL_EMAIL_MY, Keys.ENTER);
+		// press or expand the email
+		driver.findElement(emailOnLists).isDisplayed();
+		driver.findElement(emailOnLists).click();
+		// get text email verification and extract the verification code
+		driver.switchTo().frame("html_msg_body");
+		String getEmailText = driver.findElement(emailVerification).getText();
+		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
+	}
+	
 	public void getVerificationCodech(){
 		// search mail on mailinator
 		driver.findElement(txtSearch).clear();
