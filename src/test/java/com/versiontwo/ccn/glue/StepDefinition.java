@@ -2076,6 +2076,115 @@ public class StepDefinition {
 		extentTest.pass("click agent managament sqpp",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	
+	@When("^registration with new account from malaysia (.*) and (.*) login")
+	public void registrationWithNewAccountAndLoginMalay(String city, String country) throws Exception {
+		pressSignUpNowButton();
+		inputEmailAddressOnRegisterPagemy();
+		pressSendVerificationCode();
+		inputPasswordConfirmPasswordOnRegisterPage();	
+		inputDisplayNameOnRegisterPage(Constants.DISPLAY_NAME);
+		inputContactNumberOnRegisterPage(Constants.GENERATED_NUM); 
+		selectCityOnRegisterPage(city); 
+		selectCountryOnRegisterPage(country);
+		openNewTabAndOpenMailinator();
+		getTheEmailVerificationAndExtractTheVerificationCodemy();
+		closeTabAndBackToRegisterPage();
+		inputVerificationCodeOnRegisterPage();
+		pressVerificationCodeButtonOnRegisterPage();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		pressCreateAccountOnRegisterPage();
+		backToTheMainTabBrowser();
+		extentTest.log(Status.PASS, "registration with new account and login");
+		extentTest.pass( "registration with new account and login",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@When("^registration with new account from UAE (.*) and (.*) login")
+	public void registrationWithNewAccountAndLoginUAE(String city, String country) throws Exception {
+		pressSignUpNowButton();
+		inputEmailAddressOnRegisterPageuae();
+		pressSendVerificationCode();
+		inputPasswordConfirmPasswordOnRegisterPage();	
+		inputDisplayNameOnRegisterPage(Constants.DISPLAY_NAME);
+		inputContactNumberOnRegisterPage(Constants.GENERATED_NUM); 
+		selectCityOnRegisterPage(city); 
+		selectCountryOnRegisterPage(country);
+		openNewTabAndOpenMailinator();
+		getTheEmailVerificationAndExtractTheVerificationCodeuae();
+		closeTabAndBackToRegisterPage();
+		inputVerificationCodeOnRegisterPage();
+		pressVerificationCodeButtonOnRegisterPage();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		pressCreateAccountOnRegisterPage();
+		backToTheMainTabBrowser();
+		extentTest.log(Status.PASS, "registration with new account and login");
+		extentTest.pass( "registration with new account and login",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("input email address on register page malaysia")
+	public void inputEmailAddressOnRegisterPagemy() throws Exception {
+		registerPage.inputEmailRegister(Constants.FULL_EMAIL_MY);
+		System.out.println(Constants.FULL_EMAIL_MY);
+		extentTest.log(Status.PASS, "input email address on register page malaysia");
+		extentTest.pass( "input email address on register page malaysia",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("input email address on register page united arab emirates")
+	public void inputEmailAddressOnRegisterPageuae() throws Exception {
+		registerPage.inputEmailRegister(Constants.FULL_EMAIL_UAE);
+		System.out.println(Constants.FULL_EMAIL_UAE);
+		extentTest.log(Status.PASS, "input email address on register page united arab emirates");
+		extentTest.pass( "input email address on register page united arab emirates",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+
+
+	@And("input company name {string} from {string} dynamics")
+	public void inputCompanyNameDynamics(String companyName, String country) throws Exception {
+		Thread.sleep(waitResponse);
+		String companyNameInput = country+" "+companyName+Constants.FOUR_DIGIT;
+		registerPage.inputCompanyNameRegister(companyNameInput);
+		extentTest.log(Status.PASS, "input company name");
+		extentTest.pass( "input company name",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+
+
+	@And("accept manage cookie")
+	public void accept_cookie2() throws InterruptedException, Exception {
+		Thread.sleep(7000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		Set<Cookie> cookies = driver.manage().getCookies();
+		System.out.println(cookies.size()+"======================================================================================");
+		for(Cookie c:cookies) {
+			System.out.println(c.getName()+" : "+c.getValue());
+			System.out.println(driver.manage().getCookieNamed(c.getName()));
+		}
+		loginPage.pressAcceptCookies();
+		extentTest.log(Status.PASS, "accept cookie");
+		extentTest.pass( "accept cookie",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+
+	@And("get the email verification and extract the verification code malaysia")
+	public void getTheEmailVerificationAndExtractTheVerificationCodemy() throws Exception {
+		mailServiceMailinatorPOM.getVerificationCodemy();
+		//		mailServiceMailinatorPOM.getVerificationCode("qa-ccn-04346@mailinator.com");
+		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
+		extentTest.pass( "get the email verification and extract the verification code",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("get the email verification and extract the verification code united arab emirates")
+	public void getTheEmailVerificationAndExtractTheVerificationCodeuae() throws Exception {
+		mailServiceMailinatorPOM.getVerificationCodemy();
+		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
+		extentTest.pass( "get the email verification and extract the verification code",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
 
 
 
