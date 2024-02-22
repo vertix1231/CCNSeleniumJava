@@ -125,7 +125,7 @@ Feature: Air Line Tariff Query Product Plan
     #And Subscribe plan "<product>"
     #Irsyadm.a@ccn.com.sg
     Examples: 
-      | Email                         | Password      | product       |
+      | Email                         | Password      | product       				|
       | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | Air Line Tariff Query |
    
         
