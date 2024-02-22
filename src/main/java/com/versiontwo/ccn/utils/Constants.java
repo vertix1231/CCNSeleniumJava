@@ -20,6 +20,7 @@ public class Constants {
 	//constant mas wisnu
     public static final String DIR = System.getProperty("user.dir");
     public static String GENERATED_NUM = RandomStringUtils.randomNumeric(8);
+    public static String FOUR_NUM = RandomStringUtils.randomNumeric(8);
     public static String EMAIL = "";
     public static String MAIL_SERVICE = "";
     public static String MAIL_SERVICE_URL = "https://www.mailinator.com/";
@@ -35,6 +36,8 @@ public class Constants {
     public static String FULL_EMAIL = "sgqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
     public static String FULL_EMAIL_SG = "sgqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
     public static String FULL_EMAIL_CH = "chqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
+    public static String FULL_EMAIL_MY = "myqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
+    public static String FULL_EMAIL_UAE = "uaeqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
     public static String FULL_EMAIL_SQPP = "sqppqa-ccn-"+ GENERATED_NUM +"@yopmail.com"; //todo
     public static String PASSWORD = "CCNPegasus123";
     public static String VERIFICATION_CODE = "";
