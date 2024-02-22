@@ -4,8 +4,11 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.versiontwo.ccn.driver.DriverSingleton;
 
@@ -22,7 +25,7 @@ public class RegisterPage {
     By txtEmailRegister = By.id("email");
     By btnSendVerificationCodeRegister = By.id("email_ver_but_send");
     By txtVerificationCodeRegister = By.id("email_ver_input");
-    By btnVerificationCodeRegister = By.id("email_ver_but_verify");
+    By btnVerificationCodeRegister = By.id("extension_TermsOfUseConsented_AgreeToTermsOfUseConsentYes");
     By btnResendVerificationCodeRegister = By.id("email_ver_but_resend");
     
     By txtNewPasswordRegister = By.xpath("//input[@id=\"newPassword\"]");
@@ -34,12 +37,19 @@ public class RegisterPage {
     By dropdownCityRegister = By.id("city");
     By dropdownCountryRegister = By.id("extension_CountryCode");
     By btnCreateRegister = By.id("continue");
+    
+
 
     public void pressSignUpNow(){
-    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
-        driver.findElement(linkSignUpNow).isDisplayed();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
-        driver.findElement(linkSignUpNow).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement signUpLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='createAccount']")));
+        signUpLink.click();
+    
+//    	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+//        driver.findElement(linkSignUpNow).isDisplayed();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+//        driver.findElement(linkSignUpNow).click();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
     }
 
     public void inputEmailRegister(String email){
