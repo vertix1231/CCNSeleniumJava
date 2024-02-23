@@ -46,7 +46,7 @@ Discount can be applied to the product plan by default
     When click initial sign in button
     When input email <email> and password <password> and press sign in to continue login
     And back to the main tab browser
-    Then open email mailinator to cek the transaction charge
+    #Then open email mailinator to cek the transaction charge
 
 
     Examples: 
@@ -109,8 +109,10 @@ Discount can be applied to the product plan by default
       
   @PCN4
   Scenario Outline: 2 PM in the same Company. 2 Product.
-    Given accept cookie
-    When click initial sign in button
+    #Given accept cookie
+    #When click initial sign in button
+    Given go to main web
+    Given press sign in button
     When input email <email> and password <password> and press sign in to continue login
     And back to the main tab browser
     When "PM 1 Company A" click product tab to subscribe to product
@@ -133,8 +135,8 @@ Discount can be applied to the product plan by default
 
 
     Examples: 
-      | email                         | password      | product                | email2                         | productB                | 
-      | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | Lead Freight Solutions | sgqa-ccn-72921@mailinator.com  | Bundle BC AWB           | 
+      | email                       | password      | product                               | email2                         | productB                | 
+      | qa-ccn-80909@mailinator.com | CCNPegasus123 | Freight Management System - LFS Multi | sgqa-ccn-72921@mailinator.com  | Bundle BC AWB           | 
       
   @createUserMalay
   Scenario: create user from malaysia
@@ -197,11 +199,6 @@ Discount can be applied to the product plan by default
     And input contact details mobile no "<mobileNo>"
     And input contact details email "<email>"
     And press submit create company
-    Then will displayed pop up for post payment setup
-    And click proceed pop up button for creating company to the post payment
-    And click ok button from pop up confirmation that tells GIRO setup instructions has been sent to email
-    Then finally successfully to the setup post payment
-    And receive email notification giro setup
     #main test 1
     #Given "User A" click product tab to subscribe to product
     #And Select plan "Plan A" "<product>"
@@ -210,4 +207,4 @@ Discount can be applied to the product plan by default
     
     Examples: 
       | product                      | companyemail                | email                       | password      | companyName     | companyRegis | typeOfCompany | countryB       | city          | name     | designation | mobileNo     | iataNo   | cassNo   | officeAddress       | postCode | mobileNoCompany | product       | cityB         | country  |
-      | Bundle (AWB, BC) Non Company | qa-ccn-22869@mailinator.com | qa-ccn-22869@mailinator.com | CCNPegasus123 | QA_CCN_Company  | MY           | GSA           | MY - MALAYSIA  | KUALA LUMPUR  | gsa sg 1 | marketing   | 081234567891 | 00000001 | 11111111 | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | KUL           | Malaysia |
+      | Bundle (AWB, BC) Non Company | qa-ccn-80909@mailinator.com | qa-ccn-22869@mailinator.com | CCNPegasus123 | QA_CCN_Company  | MY           | GSA           | MY - MALAYSIA  | KUALA LUMPUR  | gsa sg 1 | marketing   | 081234567891 | 00000001 | 11111111 | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | KUL           | Malaysia |

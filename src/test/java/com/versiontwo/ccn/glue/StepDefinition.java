@@ -204,7 +204,7 @@ public class StepDefinition {
 	public void pressSignUpNowButton() throws Exception {
 		Thread.sleep(waitResponse);
 		registerPage.pressSignUpNow();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(longwaitResponse));
 		extentTest.log(Status.PASS, "press sign up now button");
 		extentTest.pass( "press sign up now button",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
@@ -343,6 +343,16 @@ public class StepDefinition {
 		Thread.sleep(waitResponse);
 		extentTest.log(Status.PASS, "press verification code button on register page");
 		extentTest.pass( "press verification code button on register page",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("press agree the term")
+	public void pressBtnAgreetheTerm() throws Exception {
+		registerPage.pressAgreetheTerm();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		Thread.sleep(waitResponse);
+		extentTest.log(Status.PASS, "press agree the term button on register page");
+		extentTest.pass( "press agree the term button on register page",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 
@@ -2087,12 +2097,13 @@ public class StepDefinition {
 		inputContactNumberOnRegisterPage(Constants.GENERATED_NUM); 
 		selectCityOnRegisterPage(city); 
 		selectCountryOnRegisterPage(country);
-		openNewTabAndOpenYopmail();
-		getTheEmailVerificationAndExtractTheVerificationCodemyYopmail();
+		openNewTabAndOpenMailinator();
+		getTheEmailVerificationAndExtractTheVerificationCodemy();
 		closeTabAndBackToRegisterPage();
 		inputVerificationCodeOnRegisterPage();
 		pressVerificationCodeButtonOnRegisterPage();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		pressBtnAgreetheTerm();
 		pressCreateAccountOnRegisterPage();
 		backToTheMainTabBrowser();
 		extentTest.log(Status.PASS, "registration with new account and login");

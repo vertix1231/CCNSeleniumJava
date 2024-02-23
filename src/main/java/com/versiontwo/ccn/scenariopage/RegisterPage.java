@@ -25,7 +25,8 @@ public class RegisterPage {
     By txtEmailRegister = By.id("email");
     By btnSendVerificationCodeRegister = By.id("email_ver_but_send");
     By txtVerificationCodeRegister = By.id("email_ver_input");
-    By btnVerificationCodeRegister = By.id("extension_TermsOfUseConsented_AgreeToTermsOfUseConsentYes");
+    By btnVerificationCodeRegister = By.id("email_ver_but_verify");
+    By btnAgreeTerm = By.id("extension_TermsOfUseConsented_AgreeToTermsOfUseConsentYes");
     By btnResendVerificationCodeRegister = By.id("email_ver_but_resend");
     
     By txtNewPasswordRegister = By.xpath("//input[@id=\"newPassword\"]");
@@ -68,6 +69,11 @@ public class RegisterPage {
     public void pressVerificationCodeRegister(){
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
         driver.findElement(btnVerificationCodeRegister).click();
+    }
+    
+    public void pressAgreetheTerm(){
+    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+        driver.findElement(btnAgreeTerm).click();
     }
     public void inputNewPasswordRegister(String password){
         driver.findElement(txtNewPasswordRegister).clear();
