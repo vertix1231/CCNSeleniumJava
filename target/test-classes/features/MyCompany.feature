@@ -15,7 +15,6 @@ Feature: My Company
     Then will redirected to suggested company list which match with domain name of the users
 
 #new aacounts sandbox:
-#qa-ccn-95169@mailinator.com
 #qa-ccn-04346@mailinator.com
 #qa-ccn-99227@mailinator.com
 #qa-ccn-80909@mailinator.com

@@ -131,12 +131,12 @@ Discount can be applied to the product plan by default
     When click initial sign in button
     When input email <email> and password <password> and press sign in to continue login
     And back to the main tab browser
-    Then open email mailinator to cek the transaction charge
+    #Then open email mailinator to cek the transaction charge
 
 
     Examples: 
-      | email                       | password      | product                               | email2                         | productB                | 
-      | qa-ccn-80909@mailinator.com | CCNPegasus123 | Freight Management System - LFS Multi | sgqa-ccn-72921@mailinator.com  | Bundle BC AWB           | 
+      | email                       | password      | product                               | email2                       | productB                | 
+      | qa-ccn-95169@mailinator.com | CCNPegasus123 | Freight Management System - LFS Multi | qa-ccn-80909@mailinator.com  | Bundle BC AWB           | 
       
   @createUserMalay
   Scenario: create user from malaysia

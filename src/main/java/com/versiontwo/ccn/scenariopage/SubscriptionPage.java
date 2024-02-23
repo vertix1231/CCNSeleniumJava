@@ -363,11 +363,32 @@ public class SubscriptionPage {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 			chckBoxComplimentarySubscribee.click();
 		}
+		
+		public void clickchckBoxbundleAWBBCplan() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement chckBoxComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("input#cube-subscribe-btn-checkbox-657c08880cc0f27d570a3ac8"));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + chckBoxComplimentarySubscribee.isDisplayed());
+			chckBoxComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			chckBoxComplimentarySubscribee.click();
+		}
 
 		public void clickBtnSubscribequotationproposalplan() throws Exception {
 			Thread.sleep(waitResponse);
 			WebElement btnComplimentarySubscribee = shadowDomcpsubscribe()
 					.findElement(By.cssSelector("button#cube-subscribe-btn-6389b9e2089c75ff462d9843"));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
+			btnComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			btnComplimentarySubscribee.click();
+		}
+		
+		public void clickBtnSubscribebundleAWBBCplan() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement btnComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("button#cube-subscribe-btn-657c08880cc0f27d570a3ac8"));
 			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
 			btnComplimentarySubscribee.isDisplayed();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
@@ -393,6 +414,12 @@ public class SubscriptionPage {
 			clickBtnSubscribequotationproposalplan();
 			clickBtnConfirmquotationproposalplan();// offline payment
 
+		}
+		
+		private void subscribebundleBCAWBplan() throws Exception {
+			clickchckBoxbundleAWBBCplan();
+			inputbundleawbbc();
+			clickBtnSubscribebundleAWBBCplan();
 		}
 
 		public void clickchckBoxbookingqueueplan() throws Exception {
@@ -611,6 +638,17 @@ public class SubscriptionPage {
 			btnComplimentarySubscribee.isDisplayed();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 			btnComplimentarySubscribee.sendKeys("13");
+			;
+		}
+		
+		public void inputbundleawbbc() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement btnComplimentarySubscribee = shadowDomcpsubscribesecond()
+					.findElement(By.cssSelector("input#cube-subscribe-btn-input-657c08880cc0f27d570a3ac8"));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
+			btnComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			btnComplimentarySubscribee.sendKeys("5");
 			;
 		}
 		
@@ -921,6 +959,9 @@ public class SubscriptionPage {
 		case "Freight Management System - LFS Multi Downgrade":
 			lfsProduct.click();
 			break;
+		case "Bundle BC AWB":
+			lsPlanProduct.get(10).click();
+			break;
 		default:
 			break;
 		}
@@ -1002,6 +1043,9 @@ public class SubscriptionPage {
 		switch (productB) {
 		case "Freight Management System - LFS Multi Downgrade":
 			subscribelfsmultiplandowngrade();
+			break;
+		case "Bundle BC AWB":
+			subscribebundleBCAWBplan();
 			break;
 		default:
 			break;
@@ -1237,7 +1281,7 @@ public class SubscriptionPage {
 	public void enterinputcardExpiryformpayment() throws Exception {
 		Thread.sleep(waitResponse);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
-		inputcardExpiryformpayment.sendKeys("424");
+		inputcardExpiryformpayment.sendKeys("0825");
 	}
 
 	public void enterinputVcaCardNumberformpayment() throws Exception {
