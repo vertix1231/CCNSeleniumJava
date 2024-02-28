@@ -643,7 +643,7 @@ public class SubscriptionPage {
 		
 		public void inputbundleawbbc() throws Exception {
 			Thread.sleep(waitResponse);
-			WebElement btnComplimentarySubscribee = shadowDomcpsubscribesecond()
+			WebElement btnComplimentarySubscribee = shadowDomcpsubscribe()
 					.findElement(By.cssSelector("input#cube-subscribe-btn-input-657c08880cc0f27d570a3ac8"));
 			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
 			btnComplimentarySubscribee.isDisplayed();
@@ -886,8 +886,17 @@ public class SubscriptionPage {
 		case "Cargo Insurance":
 			lsPlanProduct.get(2).click();
 			break;
+		case "Cargo Insurance China Site":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/redkik-cargo-insurance/");
+			break;
 		case "CargoMart by CargoAi":
 			lsPlanProduct.get(3).click();
+			break;
+		case "CargoMart by CargoAi China Site":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/cargomart-by-cargoai/");
+			break;	
+		case "Lead Freight Solutions":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/lead-freight-solutions/");
 			break;
 		case "Freight Management System - LFS Trial":
 			lsPlanProduct.get(4).click();
@@ -901,8 +910,14 @@ public class SubscriptionPage {
 		case "Quotation Request":
 			lsPlanProduct.get(5).click();
 			break;
+		case "Quotation Request China Site":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/quotation-request/");
+			break;
 		case "Quotation Proposal":
 			lsPlanProduct.get(6).click();
+			break;
+		case "Quotation Proposal China Site":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/quotation-proposal/");
 			break;
 		case "Moaah Starter":
 //			lsPlanProduct.get(8).click();
@@ -938,6 +953,10 @@ public class SubscriptionPage {
 			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
 //			driver.get("https://cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
 			break;
+		case "Bundle BC AWB":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/bundle-awb-bc/");
+//			driver.get("https://cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
+			break;
 		default:
 			break;
 		}
@@ -960,7 +979,7 @@ public class SubscriptionPage {
 			lfsProduct.click();
 			break;
 		case "Bundle BC AWB":
-			lsPlanProduct.get(10).click();
+			lsPlanProduct.get(9).click();
 			break;
 		default:
 			break;
@@ -1033,6 +1052,9 @@ public class SubscriptionPage {
 			break;
 		case "Freight Management System - LFS Multi Upgrade":
 			subscribelfsmultiplanupgrade();
+			break;
+		case "Bundle BC AWB":
+			subscribebundleBCAWBplan();
 			break;
 		default:
 			break;
@@ -1257,6 +1279,7 @@ public class SubscriptionPage {
 		enterinputFullNameCardNumberformpayment();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		clickbtncompleteformpaymentStripe();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 	}
 
 	public void inputserachphonenumberformpayment() throws Exception {

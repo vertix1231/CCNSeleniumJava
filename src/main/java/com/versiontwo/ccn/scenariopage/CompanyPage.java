@@ -434,6 +434,10 @@ public class CompanyPage {
 	@CacheLookup
 	private WebElement accountCircleIcon;
 	
+	@FindBy(xpath="//*[@service-id='2ccbe74c-493b-47a4-8dee-80bdb147e895' and @client-id='268e587b-a947-421b-a737-b5573c6ea075' and @target-service-id='52bf0c2e-6ea1-459f-b863-f4dccc28a296' and @login-redirect-url='/portal' and @logout-redirect-url='/' and @env='ppd' and @login-type='popup' and @contract-version='1' and @authority-url='https://ccnssoppd.b2clogin.com/ccnssoppd.onmicrosoft.com' and @sign-up-sign-in-authority='b2c_1a_signup_signinnewusersyn' and @forgot-password-policy-name='b2c_1a_passwordreset' and @label-button='Sign In' and @contract_name='Profile' and @polling-interval='10000' and @redirect-interval='100' and @china-site='https://cndev.cubeforall.com/' and @general-site='https://sandbox.cubeforall.com/']")
+	@CacheLookup
+	private WebElement menuAccount;
+	
 	@FindBy(xpath="//*[@id=\"toppage\"]/header/div[2]/div[2]/div[2]/div[2]/wc-login/div/div/div[2]/div[2]/div")
 	@CacheLookup
 	private List<WebElement> lsMenuAccount;
@@ -445,6 +449,10 @@ public class CompanyPage {
 	@FindBy(xpath="//a[@href='/portal/manage-subscription/']/span")
 	@CacheLookup
 	private WebElement ClickSubscribe;
+	
+	@FindBy(xpath="//span[text()='Sign Out']")
+	@CacheLookup
+	private WebElement ClickSignOut;
 	
 	@FindBy(xpath="//*[@id=\"cube-plan-list\"]/tbody/tr[1]/td[8]")
 	@CacheLookup
@@ -559,6 +567,13 @@ public class CompanyPage {
 		accountCircleIcon.click();
 	}
 	
+	private void clickMenuIcon() throws Exception {
+		Thread.sleep(waitResponse);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		System.out.println("accountCircleIcon is display-enable : "+accountCircleIcon.isDisplayed()+" - "+accountCircleIcon.isEnabled());
+		menuAccount.click();
+	}
+	
 	public void myMenuAccount(String menu) throws Exception {
 		Thread.sleep(waitResponse);
 //		driver.get("https://sandbox.cubeforall.com/portal/manage-subscription/");
@@ -597,6 +612,16 @@ public class CompanyPage {
 		ClickMenuAccount.click();
 		Thread.sleep(waitResponse);
 		ClickSubscribe.click();
+		Thread.sleep(waitResponse);
+		
+		}
+	
+	public void clickMenuAccountFront() throws Exception {
+		Thread.sleep(waitResponse);
+		clickMenuIcon();
+		Thread.sleep(waitResponse);
+		ClickSignOut.click();
+		Thread.sleep(waitResponse);
 		Thread.sleep(waitResponse);
 		
 		}

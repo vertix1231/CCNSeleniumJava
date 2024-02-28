@@ -63,6 +63,7 @@ Discount can be applied to the product plan by default
     And Select plan "Plan A" "<product>"
     And Subscribe plan "<product>"
     And input the complete subscriber payment form
+    And wait for response
     When "PM 1 Company A" click product tab to subscribe to product
     And Select plan "Plan B" "<productB>"
     And Subscribe plan "<productB>"
@@ -109,8 +110,6 @@ Discount can be applied to the product plan by default
       
   @PCN4
   Scenario Outline: 2 PM in the same Company. 2 Product.
-    #Given accept cookie
-    #When click initial sign in button
     Given go to main web
     Given press sign in button
     When input email <email> and password <password> and press sign in to continue login
@@ -119,24 +118,28 @@ Discount can be applied to the product plan by default
     And Select plan "Plan A" "<product>"
     And Subscribe plan "<product>"
     And input the complete subscriber payment form
-    And go to my icon account menu "Sign Out"
-    When click initial sign in button
+    And go to my icon account to Sign Out
+    Given press sign in button
     When input email <email2> and password <password> and press sign in to continue login
     And back to the main tab browser
     When "PM 2 Company A" click product tab to subscribe to product
     And Select plan "Plan B" "<productB>"
-    And Subscribe plan "<productB>"
+    And Subscribe second plan "<productB>"
     And input the complete subscriber payment form
-    And go to my icon account menu "Sign Out"
-    When click initial sign in button
-    When input email <email> and password <password> and press sign in to continue login
-    And back to the main tab browser
+    And go to my icon account to Sign Out
+    #When click initial sign in button
+    #When input email <email> and password <password> and press sign in to continue login
+    #And back to the main tab browser
     #Then open email mailinator to cek the transaction charge
 
 
     Examples: 
-      | email                       | password      | product                               | email2                       | productB                | 
-      | qa-ccn-95169@mailinator.com | CCNPegasus123 | Freight Management System - LFS Multi | qa-ccn-80909@mailinator.com  | Bundle BC AWB           | 
+      | email                       | password      | product       | email2                       | productB                | 
+      | qa-ccn-46551@mailinator.com | CCNPegasus123 | Bundle BC AWB | qa-ccn-50226@mailinator.com  | AWB Editor          | 
+    
+    #qa-ccn-95169@mailinator.com
+    #qa-ccn-04346@mailinator.com
+    #qa-ccn-46551@mailinator.com
       
   @createUserMalay
   Scenario: create user from malaysia

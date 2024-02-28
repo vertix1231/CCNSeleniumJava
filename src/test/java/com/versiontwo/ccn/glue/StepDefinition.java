@@ -872,6 +872,16 @@ public class StepDefinition {
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 	
+	@And("go to my icon account to Sign Out")
+	public void go_to_my_icon_account_singout() throws Exception {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		Thread.sleep(longwaitResponse);
+		myCompanyPOM.clickMenuAccountFront();
+		extentTest.log(Status.PASS, "go to my icon account menu Sign Out");
+		extentTest.pass( "go to my icon account menu Sign Out",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
 	@And("go to my icon account menuuu")
 	public void go_to_my_icon_account_menu_menu_men() throws Exception {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
@@ -1683,6 +1693,11 @@ public class StepDefinition {
 		extentTest.log(Status.PASS, "Select plan {string} {string}");
 		extentTest.pass( "Select plan {string} {string}",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("wait for response")
+	public void waitresponse() throws Exception {
+		Thread.sleep(7000);
 	}
 	
 	@And("Select second plan {string} {string}")

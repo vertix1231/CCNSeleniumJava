@@ -15,8 +15,6 @@ Feature: My Company
     Then will redirected to suggested company list which match with domain name of the users
 
 #new aacounts sandbox:
-#qa-ccn-04346@mailinator.com
-#qa-ccn-99227@mailinator.com
 #qa-ccn-80909@mailinator.com
 #qa-ccn-83833@mailinator.com
 #qa-ccn-07702@mailinator.com
@@ -34,19 +32,9 @@ Feature: My Company
 #qa-ccn-15668@mailinator.com
 #qa-ccn-55758@mailinator.com
 #qa-ccn-45840@mailinator.com
-#qa-ccn-50226@mailinator.com
-#qa-ccn-27453@mailinator.com
-#qa-ccn-54485@mailinator.com
-#qa-ccn-09538@mailinator.com
-#qa-ccn-46706@mailinator.com
-#
-#qa-ccn-09734@mailinator.com
-#
 
 
 #nd login or more sandbox already on company:
-#qa-ccn-86680@mailinator.com
-#qa-ccn-33061@mailinator.com
 #qa-ccn-75754@mailinator.com
 #qa-ccn-66370@mailinator.com
 #qa-ccn-32068@mailinator.com
@@ -61,10 +49,8 @@ Feature: My Company
 #qa-ccn-40243@mailinator.com
 #qa-ccn-71823@mailinator.com
 
-#sample owner company:
-#qa-ccn-68108@mailinator.com
+#have company
 #qa-ccn-46551@mailinator.com
-
 
 #new aacounts dev:
 #qa-ccn-66660@mailinator.com
@@ -1624,3 +1610,37 @@ Feature: My Company
 	     Examples: 
 					| email                              |password      |       iconaccountmenu	|
 				  | qa-ccn-46551@mailinator.com        |CCNPegasus123 | My Company     				|
+				  
+		@ChinaSiteUserFromChina
+  	Scenario Outline: check subscribtion element on china
+      Given go to main web
+      Given press sign in button
+   		When input email <email> and password <password> and press sign in to continue login
+    	And back to the main tab browser
+    	When "user from china" click product tab to subscribe to product
+    	And Select plan "to check subscibtion element" "<product>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productB>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productC>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productD>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productE>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productF>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productG>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productH>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productI>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productJ>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productK>"
+
+
+    	Examples: 
+      	| email                       | password      | product       | productB                   | productC                        | productD               | productE                     | productF                      | productG      | productH      | productI   | productJ | productK              |
+      	| qa-ccn-04346@mailinator.com | CCNPegasus123 | Booking Queue | Cargo Insurance China Site | CargoMart by CargoAi China Site | Lead Freight Solutions | Quotation Request China Site | Quotation Proposal China Site | Bundle BC AWB | AWB Concierge | AWB Editor | DGOffice | Air Line Tariff Query |
