@@ -882,7 +882,7 @@ public class StepDefinition {
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 	
-	@And("go to my icon account menuuu")
+	@And("go to my icon account menu then click subscribe")
 	public void go_to_my_icon_account_menu_menu_men() throws Exception {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		Thread.sleep(longwaitResponse);
@@ -1654,6 +1654,15 @@ public class StepDefinition {
 		subscriptionPage.inputCompleteFillSubscriberPayment();
 		extentTest.log(Status.PASS, "input the complete subscriber payment form");
 		extentTest.pass( "input the complete subscriber payment form",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("click subscriber payment form")
+	public void click_subscriber_payment_form() throws Exception {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		subscriptionPage.clickbtncompleteformpaymentStripe();
+		extentTest.log(Status.PASS, "click subscribe");
+		extentTest.pass( "click subscribe",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 

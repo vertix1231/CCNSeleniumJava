@@ -609,7 +609,7 @@ public class CompanyPage {
 //		driver.get("https://sandbox.cubeforall.com/portal/manage-subscription/");
 		clickAccountCircleIcon();
 		Thread.sleep(waitResponse);
-		ClickMenuAccount.click();
+		menuAccount.click();
 		Thread.sleep(waitResponse);
 		ClickSubscribe.click();
 		Thread.sleep(waitResponse);
