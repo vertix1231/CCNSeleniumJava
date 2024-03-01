@@ -33,11 +33,14 @@ public class Constants {
     public static String SQPP_PATH_URL = "https://coolman:iamcool@ppd-siacargo.ccnexchange.com";
 //  public static String SQPP_PATH_URL = "https://ppd-siacargo.ccnexchange.com/";
     
+    
+    public static String FULL_MAIL = "qa-ccn-"+ GENERATED_NUM +"@yopmail.com"; //todo
     public static String FULL_EMAIL = "sgqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
     public static String FULL_EMAIL_SG = "sgqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
     public static String FULL_EMAIL_CH = "chqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
-    public static String FULL_EMAIL_MY = "myqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
-    public static String FULL_EMAIL_UAE = "uaeqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
+    public static String FULL_EMAIL_MY = "myqa-ccn-"+ GENERATED_NUM +"@yopmail.com"; //todo
+    public static String FULL_EMAIL_UAE = "uaeqa-ccn-"+ GENERATED_NUM +"@yopmail.com"; //todo
+    public static String FULL_EMAIL_INDO = "indoqa-ccn-"+ GENERATED_NUM +"@yopmail.com"; //todo
     public static String FULL_EMAIL_SQPP = "sqppqa-ccn-"+ GENERATED_NUM +"@mailinator.com"; //todo
     public static String PASSWORD = "CCNPegasus123";
     public static String VERIFICATION_CODE = "";

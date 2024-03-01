@@ -686,12 +686,103 @@ Discount can be applied to the product plan by default
     And input contact details mobile no "<mobileNo>"
     And input contact details email "<email>"
     And press submit create company
-    #main test 1
-    #Given "User A" click product tab to subscribe to product
-    #And Select plan "Plan A" "<product>"
-    #And Subscribe plan "<product>"
-    #And go to my icon account menu "My Subscriptions"
     
     Examples: 
-      | product                      | companyemail                | email                       | password      | companyName     | companyRegis | typeOfCompany | countryB       | city          | name     | designation | mobileNo     | iataNo   | cassNo   | officeAddress       | postCode | mobileNoCompany | product       | cityB         | country  |
-      | Bundle (AWB, BC) Non Company | qa-ccn-80909@mailinator.com | qa-ccn-22869@mailinator.com | CCNPegasus123 | QA_CCN_Company  | MY           | GSA           | MY - MALAYSIA  | KUALA LUMPUR  | gsa sg 1 | marketing   | 081234567891 | 00000001 | 11111111 | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | KUL           | Malaysia |
+      | companyemail   | email             | password      | companyName     | companyRegis | typeOfCompany | countryB       | city          | name    | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB         | country  |
+      | my@yopmail.com | myper@yopmail.com | CCNPegasus123 | QA_CCN_Company  | MY           | GSA           | MY - MALAYSIA  | KUALA LUMPUR  | my test | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | KUL           | Malaysia |
+      
+  @create_user_company_UAE
+  Scenario Outline: create user company malaysia
+    Given go to main web
+    Given press sign in button
+    When registration with new account from UAE <city> and <country> login
+    Then will redirected to suggested company list which match with domain name of the users
+    When system didn't found the suggested company matched
+    And input company name "<companyName>" from "<country>" dynamics
+    And input company registration "<companyRegis>"
+    And input company type "<typeOfCompany>"
+    And input country "<countryB>"
+    And input city "<cityB>"
+    And theres button to create company with the status was enabled to create company
+    Then the user was able to create a new company
+    When press create company button
+    And input contact details IATA membership number "<iataNo>"
+    And input contact details CASS number "<cassNo>"
+    And input registered office address "<officeAddress>" for company detail
+    And input post code "<postCode>" for company detail
+    And input company email "<companyemail>" for company detail
+    And input mobile number detail company "<mobileNoCompany>" for company detail
+    And input mailing address complete from same as registered company address
+    And input contact details name "<name>"
+    And input contact details designation "<designation>"
+    And input contact details mobile no "<mobileNo>"
+    And input contact details email "<email>"
+    And press submit create company
+    
+    Examples: 
+      | companyemail    | email              | password      | companyName     | companyRegis | typeOfCompany | countryB                   | city       | name     | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB           | country              |
+      | uae@yopmail.com | uaeper@yopmail.com | CCNPegasus123 | QA_CCN_Company  | UAE          | GSA           | AE - UNITED ARAB EMIRATES  | ABU DHABI  | uae comp | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | AUH - ABU DHABI | United Arab Emirates |
+  
+  @create_user_company_INA
+  Scenario Outline: create user company malaysia
+    Given go to main web
+    Given press sign in button
+    When registration with new account from UAE <city> and <country> login
+    Then will redirected to suggested company list which match with domain name of the users
+    When system didn't found the suggested company matched
+    And input company name "<companyName>" from "<country>" dynamics
+    And input company registration "<companyRegis>"
+    And input company type "<typeOfCompany>"
+    And input country "<countryB>"
+    And input city "<cityB>"
+    And theres button to create company with the status was enabled to create company
+    Then the user was able to create a new company
+    When press create company button
+    And input contact details IATA membership number "<iataNo>"
+    And input contact details CASS number "<cassNo>"
+    And input registered office address "<officeAddress>" for company detail
+    And input post code "<postCode>" for company detail
+    And input company email "<companyemail>" for company detail
+    And input mobile number detail company "<mobileNoCompany>" for company detail
+    And input mailing address complete from same as registered company address
+    And input contact details name "<name>"
+    And input contact details designation "<designation>"
+    And input contact details mobile no "<mobileNo>"
+    And input contact details email "<email>"
+    And press submit create company
+    
+    Examples: 
+      | companyemail    | email              | password      | companyName     | companyRegis | typeOfCompany | countryB        | city     | name                 | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB            | country   |
+      | ina@yopmail.com | inawon@yopmail.com | CCNPegasus123 | QA_CCN_Company  | INA          | GSA           | ID - INDONESIA  | JAKARTA  | perusahaan indonesia | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | JOG - YOGYAKARTA | Indonesia |
+      
+  @create_user_company_SG
+  Scenario Outline: create user company malaysia
+    Given go to main web
+    Given press sign in button
+    When registration with new account yopmail and login
+    Then will redirected to suggested company list which match with domain name of the users
+    When system didn't found the suggested company matched
+    And input company name "<companyName>" from "<country>" dynamics
+    And input company registration "<companyRegis>"
+    And input company type "<typeOfCompany>"
+    And input country "<country>"
+    And input city "<city>"
+    And theres button to create company with the status was enabled to create company
+    Then the user was able to create a new company
+    When press create company button
+    And input contact details IATA membership number "<iataNo>"
+    And input contact details CASS number "<cassNo>"
+    And input registered office address "<officeAddress>" for company detail
+    And input post code "<postCode>" for company detail
+    And input company email "<companyemail>" for company detail
+    And input mobile number detail company "<mobileNoCompany>" for company detail
+    And input mailing address complete from same as registered company address
+    And input contact details name "<name>"
+    And input contact details designation "<designation>"
+    And input contact details mobile no "<mobileNo>"
+    And input contact details email "<email>"
+    And press submit create company
+    
+    Examples: 
+      | companyemail   | email             | password      | companyName     | companyRegis | typeOfCompany | country        | city             | name              | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | 
+      | sg@yopmail.com | sgsin@yopmail.com | CCNPegasus123 | QA_CCN_Company  | SGCOM        | GSA           | SG - SINGAPORE | SIN - SINGAPORE  | singapore compnay | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | 

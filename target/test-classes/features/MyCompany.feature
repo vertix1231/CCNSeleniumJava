@@ -13,11 +13,15 @@ Feature: My Company
     Given press sign in button
     When registration with new account and login
     Then will redirected to suggested company list which match with domain name of the users
+    
+  @createUserYopmail
+  Scenario: S1 After login for the first time will be redirected to the suggested company list, which is matching with domain name
+    Given go to main web
+    Given press sign in button
+    When registration with new account yopmail and login
+    Then will redirected to suggested company list which match with domain name of the users
 
 #new aacounts sandbox:
-#
-#qa-ccn-07702@mailinator.com
-#qa-ccn-91353@mailinator.com
 #qa-ccn-41965@mailinator.com
 #qa-ccn-25445@mailinator.com
 #qa-ccn-67431@mailinator.com
@@ -1638,6 +1642,43 @@ Feature: My Company
     	And Select plan "to check subscibtion element" "<productJ>"
     	And wait for response
     	And Select plan "to check subscibtion element" "<productK>"
+
+
+    	Examples: 
+      	| email                       | password      | product       | productB                   | productC                        | productD               | productE                     | productF                      | productG      | productH      | productI   | productJ | productK              |
+      	| qa-ccn-04346@mailinator.com | CCNPegasus123 | Booking Queue | Cargo Insurance China Site | CargoMart by CargoAi China Site | Lead Freight Solutions | Quotation Request China Site | Quotation Proposal China Site | Bundle BC AWB | AWB Concierge | AWB Editor | DGOffice | Air Line Tariff Query |
+      	
+      	
+    @ChinaSiteCompanyFromChina
+  	Scenario Outline: check subscribtion element sign in with company from china on china site
+      Given go to main web
+      Given press sign in button
+   		When input email <email> and password <password> and press sign in to continue login
+    	And back to the main tab browser
+    	When "user from china" click product tab to subscribe to product
+    	And Select plan "to check subscibtion element" "<product>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productB>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productC>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productD>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productE>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productF>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productG>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productH>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productI>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productJ>"
+    	And wait for response
+    	And Select plan "to check subscibtion element" "<productK>"
+    	And wait for response
+    	And go to my icon account menu then click subscribe
 
 
     	Examples: 

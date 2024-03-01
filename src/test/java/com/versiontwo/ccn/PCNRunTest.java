@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 monochrome= true,
 plugin = {"pretty", "junit:target/JUnitReports/reportPCN.xml",
 		"json:target/JSONReports/reportPCN.json",
-"html:target/HtmlReportsPCN.html"},tags="@PCN4")
+"html:target/HtmlReportsPCN.html"},tags="@MyCompanysuggestion-1")
 public class PCNRunTest {
 
 	@Test

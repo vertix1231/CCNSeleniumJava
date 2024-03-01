@@ -220,6 +220,17 @@ public class StepDefinition {
 		extentTest.pass( "input email address on register page",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	
+	@And("input email address yopmail on register page")
+	public void inputEmailAddressYopmailOnRegisterPage() throws Exception {
+		registerPage.inputEmailRegister(Constants.FULL_MAIL);
+		System.out.println(Constants.FULL_MAIL);
+		//		registerPage.inputEmailRegister("qa-ccn-04346@mailinator.com");
+		//		System.out.println("qa-ccn-04346@mailinator.com");
+		extentTest.log(Status.PASS, "input email address on register page");
+		extentTest.pass( "input email address on register page",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
 
 	@And("input email address on register page china")
 	public void inputEmailAddressOnRegisterPagech() throws Exception {
@@ -401,6 +412,54 @@ public class StepDefinition {
 		closeTabAndBackToRegisterPage();
 		inputVerificationCodeOnRegisterPage();
 		pressVerificationCodeButtonOnRegisterPage();
+		pressBtnAgreetheTerm();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		pressCreateAccountOnRegisterPage();
+		backToTheMainTabBrowser();
+		extentTest.log(Status.PASS, "registration with new account and login");
+		extentTest.pass( "registration with new account and login",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	
+	@When("registration with new account yopmail and login")
+	public void registrationWithNewAccountAndLoginYopmail() throws Exception {
+		pressSignUpNowButton();
+		inputEmailAddressYopmailOnRegisterPage();
+		pressSendVerificationCode();
+		inputPasswordConfirmPasswordOnRegisterPage();	
+		inputDisplayNameOnRegisterPage(Constants.DISPLAY_NAME);
+
+		inputContactNumberOnRegisterPage("12345678"); //todo: fix the hardcoded
+		selectCityOnRegisterPage("SINGAPORE"); //todo: fix the hardcoded
+		selectCountryOnRegisterPage("Singapore"); //todo: fix the hardcoded
+
+		//		inputContactNumberOnRegisterPage("12345678"); //todo: fix the hardcoded
+		//		selectCityOnRegisterPage("KUALA LUMPUR"); //todo: fix the hardcoded
+		//		selectCountryOnRegisterPage("Malaysia"); //todo: fix the hardcoded
+
+		//		inputContactNumberOnRegisterPage("12345678"); //todo: fix the hardcoded
+		//		selectCityOnRegisterPage("ABU DHABI"); //todo: fix the hardcoded
+		//		selectCountryOnRegisterPage("United Arab Emirates"); //todo: fix the hardcoded
+
+		//		inputContactNumberOnRegisterPage("12345678"); //todo: fix the hardcoded
+		//		selectCityOnRegisterPage("COLOMBO"); //todo: fix the hardcoded
+		//		selectCountryOnRegisterPage("Sri Lanka"); //todo: fix the hardcoded
+
+		//		inputContactNumberOnRegisterPage("12345678"); //todo: fix the hardcoded
+		//		selectCityOnRegisterPage("MIAMI"); //todo: fix the hardcoded
+		//		selectCountryOnRegisterPage("United States"); //todo: fix the hardcoded
+
+		//		inputContactNumberOnRegisterPage("12345678"); //todo: fix the hardcoded
+		//		selectCityOnRegisterPage("JAKARTA"); //todo: fix the hardcoded
+		//		selectCountryOnRegisterPage("Indonesia"); //todo: fix the hardcoded
+
+		openNewTabAndOpenYopmail();
+		getTheEmailVerificationAndExtractTheVerificationCodeglobalyopmail();
+		closeTabAndBackToRegisterPage();
+		inputVerificationCodeOnRegisterPage();
+		pressVerificationCodeButtonOnRegisterPage();
+		pressBtnAgreetheTerm();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		pressCreateAccountOnRegisterPage();
 		backToTheMainTabBrowser();
@@ -689,10 +748,20 @@ public class StepDefinition {
 
 	@And("get the email verification and extract the verification code singapore")
 	public void getTheEmailVerificationAndExtractTheVerificationCodesg() throws Exception {
+		Thread.sleep(10000);
 		mailServiceMailinatorPOM.getVerificationCodesg();
+		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
+		extentTest.pass( "get the email verification and extract the verification code",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("get the email verification and extract the verification code global")
+	public void getTheEmailVerificationAndExtractTheVerificationCodeglobalyopmail() throws Exception {
+		Thread.sleep(9000);
+		mailServiceYopmailPage.getVerificationCodeGLB();
 		//		mailServiceMailinatorPOM.getVerificationCode("qa-ccn-04346@mailinator.com");
-		extentTest.log(Status.PASS, "get the email verification and extract the verification code singapore");
-		extentTest.pass( "get the email verification and extract the verification code singapore",
+		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
+		extentTest.pass( "get the email verification and extract the verification code",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 	
@@ -2121,8 +2190,8 @@ public class StepDefinition {
 		inputContactNumberOnRegisterPage(Constants.GENERATED_NUM); 
 		selectCityOnRegisterPage(city); 
 		selectCountryOnRegisterPage(country);
-		openNewTabAndOpenMailinator();
-		getTheEmailVerificationAndExtractTheVerificationCodemy();
+		openNewTabAndOpenYopmail();
+		getTheEmailVerificationAndExtractTheVerificationCodemyYopmail();
 		closeTabAndBackToRegisterPage();
 		inputVerificationCodeOnRegisterPage();
 		pressVerificationCodeButtonOnRegisterPage();
@@ -2130,8 +2199,8 @@ public class StepDefinition {
 		pressBtnAgreetheTerm();
 		pressCreateAccountOnRegisterPage();
 		backToTheMainTabBrowser();
-		extentTest.log(Status.PASS, "registration with new account and login");
-		extentTest.pass( "registration with new account and login",
+		extentTest.log(Status.PASS, "registration with new account and login malaysia");
+		extentTest.pass( "registration with new account and login malaysia",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 	
@@ -2145,7 +2214,7 @@ public class StepDefinition {
 		inputContactNumberOnRegisterPage(Constants.GENERATED_NUM); 
 		selectCityOnRegisterPage(city); 
 		selectCountryOnRegisterPage(country);
-		openNewTabAndOpenMailinator();
+		openNewTabAndOpenYopmail();
 		Thread.sleep(longwaitResponse);
 		getTheEmailVerificationAndExtractTheVerificationCodeuae();
 		closeTabAndBackToRegisterPage();
@@ -2154,8 +2223,32 @@ public class StepDefinition {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		pressCreateAccountOnRegisterPage();
 		backToTheMainTabBrowser();
-		extentTest.log(Status.PASS, "registration with new account and login");
-		extentTest.pass( "registration with new account and login",
+		extentTest.log(Status.PASS, "registration with new account and login UAE");
+		extentTest.pass( "registration with new account and login UAE",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@When("^registration with new account from INDO (.*) and (.*) login")
+	public void registrationWithNewAccountAndLoginina(String city, String country) throws Exception {
+		pressSignUpNowButton();
+		inputEmailAddressOnRegisterPageuae();
+		pressSendVerificationCode();
+		inputPasswordConfirmPasswordOnRegisterPage();	
+		inputDisplayNameOnRegisterPage(Constants.DISPLAY_NAME);
+		inputContactNumberOnRegisterPage(Constants.GENERATED_NUM); 
+		selectCityOnRegisterPage(city); 
+		selectCountryOnRegisterPage(country);
+		openNewTabAndOpenYopmail();
+		Thread.sleep(longwaitResponse);
+		getTheEmailVerificationAndExtractTheVerificationCodeuae();
+		closeTabAndBackToRegisterPage();
+		inputVerificationCodeOnRegisterPage();
+		pressVerificationCodeButtonOnRegisterPage();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		pressCreateAccountOnRegisterPage();
+		backToTheMainTabBrowser();
+		extentTest.log(Status.PASS, "registration with new account and login UAE");
+		extentTest.pass( "registration with new account and login UAE",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 	
@@ -2174,6 +2267,15 @@ public class StepDefinition {
 		System.out.println(Constants.FULL_EMAIL_UAE);
 		extentTest.log(Status.PASS, "input email address on register page united arab emirates");
 		extentTest.pass( "input email address on register page united arab emirates",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("input email address on register page indonesia")
+	public void inputEmailAddressOnRegisterPageina() throws Exception {
+		registerPage.inputEmailRegister(Constants.FULL_EMAIL_INDO);
+		System.out.println(Constants.FULL_EMAIL_INDO);
+		extentTest.log(Status.PASS, "input email address on register page indonesia");
+		extentTest.pass( "input email address on register page indonesia",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
 
@@ -2225,7 +2327,7 @@ public class StepDefinition {
 	
 	@And("get the email verification and extract the verification code united arab emirates")
 	public void getTheEmailVerificationAndExtractTheVerificationCodeuae() throws Exception {
-		mailServiceMailinatorPOM.getVerificationCodemy();
+		mailServiceYopmailPage.getVerificationCodemy();
 		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
 		extentTest.pass( "get the email verification and extract the verification code",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());

@@ -13,6 +13,13 @@ Feature: My Company
     Given press sign in button
     When registration with new account and login
     Then will redirected to suggested company list which match with domain name of the users
+    
+  @createUserYopmail
+  Scenario: S1 After login for the first time will be redirected to the suggested company list, which is matching with domain name
+    Given go to main web
+    Given press sign in button
+    When registration with new account yopmail and login
+    Then will redirected to suggested company list which match with domain name of the users
 
 #new aacounts sandbox:
 #qa-ccn-41965@mailinator.com

@@ -26,8 +26,9 @@ public class MailServiceYopmailPage {
 	private int waitResponse=1000;
 	private int medResponse=5000;
 	By txtSearch = By.cssSelector("input#login.ycptinput");
-	By emailOnLists = By.xpath("//td[contains(.,'CUBEforall by CCN account email verification code')]");
-	By emailVerification = By.xpath("//*[@id=\"mail\"]/div/table/tbody/tr/td[2]/table[2]/tbody/tr[1]/td[3]/table/tbody/tr/td/table/tbody/tr/td/div[2]/span");
+	By emailOnLists = By.xpath("//button[@id='refresh']");
+	By emailVerification = By.xpath("//span[contains(text(), 'Your code is:')]");
+//	By emailVerification = By.xpath("//*[@id=\"mail\"]/div/table/tbody/tr/td[2]/table[2]/tbody/tr[1]/td[3]/table/tbody/tr/td/table/tbody/tr/td/div[2]/span");
 	
 	@FindBy(xpath="//*[@id=\"refresh\"]")
 	@CacheLookup
@@ -56,6 +57,28 @@ public class MailServiceYopmailPage {
 		Constants.VERIFICATION_CODE_SQPP = StringUtils.getDigits(getEmailText);
 	}
 	
+	public void getVerificationCodeGLB(){
+		// search mail on mailinator
+		driver.findElement(txtSearch).clear();
+		driver.findElement(txtSearch).sendKeys(Constants.FULL_MAIL, Keys.ENTER);
+		// press or expand the email
+		driver.findElement(emailOnLists).isDisplayed();
+		driver.findElement(emailOnLists).click();
+		// get text email verification and extract the verification code
+//	    try {
+//	        // Adding sleep before switching to the frame
+//	        Thread.sleep(4000); 
+//	    } catch (InterruptedException e) {
+//	        // Handle the InterruptedException
+//	        e.printStackTrace();
+//	        // Optionally, you can decide to re-interrupt the thread or perform other actions
+//	        Thread.currentThread().interrupt();
+//	    }
+		driver.switchTo().frame("ifmail");
+		String getEmailText = driver.findElement(emailVerification).getText();
+		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
+	}
+	
 	public void getVerificationCodesg(){
 		// search mail on mailinator
 		driver.findElement(txtSearch).clear();
@@ -64,7 +87,7 @@ public class MailServiceYopmailPage {
 		driver.findElement(emailOnLists).isDisplayed();
 		driver.findElement(emailOnLists).click();
 		// get text email verification and extract the verification code
-		driver.switchTo().frame("html_msg_body");
+		driver.switchTo().frame("ifmail");
 		String getEmailText = driver.findElement(emailVerification).getText();
 		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
 	}
@@ -77,7 +100,20 @@ public class MailServiceYopmailPage {
 		driver.findElement(emailOnLists).isDisplayed();
 		driver.findElement(emailOnLists).click();
 		// get text email verification and extract the verification code
-		driver.switchTo().frame("html_msg_body");
+		driver.switchTo().frame("ifmail");
+		String getEmailText = driver.findElement(emailVerification).getText();
+		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
+	}
+	
+	public void getVerificationCodeina(){
+		// search mail on mailinator
+		driver.findElement(txtSearch).clear();
+		driver.findElement(txtSearch).sendKeys(Constants.FULL_EMAIL_INDO, Keys.ENTER);
+		// press or expand the email
+		driver.findElement(emailOnLists).isDisplayed();
+		driver.findElement(emailOnLists).click();
+		// get text email verification and extract the verification code
+		driver.switchTo().frame("ifmail");
 		String getEmailText = driver.findElement(emailVerification).getText();
 		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
 	}
@@ -90,7 +126,7 @@ public class MailServiceYopmailPage {
 		driver.findElement(emailOnLists).isDisplayed();
 		driver.findElement(emailOnLists).click();
 		// get text email verification and extract the verification code
-		driver.switchTo().frame("html_msg_body");
+		driver.switchTo().frame("ifmail");
 		String getEmailText = driver.findElement(emailVerification).getText();
 		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
 	}
@@ -102,7 +138,7 @@ public class MailServiceYopmailPage {
 		driver.findElement(emailOnLists).isDisplayed();
 		driver.findElement(emailOnLists).click();
 		// get text email verification and extract the verification code
-		driver.switchTo().frame("html_msg_body");
+		driver.switchTo().frame("ifmail");
 		String getEmailText = driver.findElement(emailVerification).getText();
 		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
 	}
