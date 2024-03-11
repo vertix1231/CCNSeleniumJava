@@ -44,8 +44,8 @@ Discount can be applied to the product plan by default
     And input the complete subscriber payment form
     
         Examples: 
-    | email                         | password      | product                | email2                         | productB      | productC      |
-    | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | Lead Freight Solutions | sgqa-ccn-72921@mailinator.com  | Bundle BC AWB | Booking Queue |
+    | email                       | password      | product                                        | email2                       | productB                                         | productC      |
+    | qa-ccn-75754@mailinator.com | CCNPegasus123 | test awbconcierge premium multicurrencysandbox | qa-ccn-75754@mailinator.com  | test iata tact rate premium multicurrencysandbox | test bc premium multicurrencysandbox |
     
     
   @PCNS2
@@ -88,8 +88,8 @@ Discount can be applied to the product plan by default
 
 
     Examples: 
-      | email                         | password      | product                | 
-      | sgqa-ccn-72924@mailinator.com | CCNPegasus123 | Lead Freight Solutions |   
+      | email                         | password      | product                                        | 
+      | sgqa-ccn-72924@mailinator.com | CCNPegasus123 | test awbconcierge premium multicurrencysandbox |   
 	
 	@PCNS4
   Scenario Outline: Subscription of the subsequent month (with new PM Join). PCN Configuration:  set to 10% of each subscription; PCN applies to all products, countries, cities, companies.
@@ -634,21 +634,22 @@ Discount can be applied to the product plan by default
     
   Examples: 
   | city         | country  |
-  | KUALA LUMPUR | Malaysia |  
+  | KUALA LUMPUR | Malaysia | 
   
-  #@createUserMalay
-  #Scenario: create user from malaysia
-    #Given go to main web
-    #Given press sign in button
-    #When registration with new account from malaysia <city> and <country> login
-    #Then will redirected to suggested company list which match with domain name of the users
-    #
-  #Examples: 
-  #| city         | country  |
-  #| KUALA LUMPUR | Malaysia |     
+  
+  @create_user_INDO
+  Scenario Outline: create user from indonesia
+    Given go to main web
+    Given press sign in button
+    When registration with new account from INDO <city> and <country> login
+    Then will redirected to suggested company list which match with domain name of the users 
+  
+  Examples: 
+  | city         | country   |
+  | YOGYAKARTA    | Indonesia |  
   
   @createUserUAE
-  Scenario Outline: create user from malaysia
+  Scenario Outline: create user from united arab emirates
     Given go to main web
     Given press sign in button
     When registration with new account from UAE <city> and <country> login
@@ -688,17 +689,17 @@ Discount can be applied to the product plan by default
     And press submit create company
     
     Examples: 
-      | companyemail   | email             | password      | companyName     | companyRegis | typeOfCompany | countryB       | city          | name    | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB         | country  |
-      | my@yopmail.com | myper@yopmail.com | CCNPegasus123 | QA_CCN_Company  | MY           | GSA           | MY - MALAYSIA  | KUALA LUMPUR  | my test | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | KUL           | Malaysia |
+      | companyemail   | email             | password      | companyName  | companyRegis | typeOfCompany | countryB       | city          | name    | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB         | country  |
+      | my@yopmail.com | myper@yopmail.com | CCNPegasus123 | Test         | MY           | GSA           | MY - MALAYSIA  | KUALA LUMPUR  | my test | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | KUL           | Malaysia |
       
   @create_user_company_UAE
-  Scenario Outline: create user company malaysia
+  Scenario Outline: create user company united arab emirates
     Given go to main web
     Given press sign in button
     When registration with new account from UAE <city> and <country> login
     Then will redirected to suggested company list which match with domain name of the users
     When system didn't found the suggested company matched
-    And input company name "<companyName>" from "<country>" dynamics
+    And input company name "<companyName>" from "<companyRegis>" dynamics
     And input company registration "<companyRegis>"
     And input company type "<typeOfCompany>"
     And input country "<countryB>"
@@ -720,14 +721,14 @@ Discount can be applied to the product plan by default
     And press submit create company
     
     Examples: 
-      | companyemail    | email              | password      | companyName     | companyRegis | typeOfCompany | countryB                   | city       | name     | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB           | country              |
-      | uae@yopmail.com | uaeper@yopmail.com | CCNPegasus123 | QA_CCN_Company  | UAE          | GSA           | AE - UNITED ARAB EMIRATES  | ABU DHABI  | uae comp | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | AUH - ABU DHABI | United Arab Emirates |
+      | companyemail    | email              | password      | companyName  | companyRegis | typeOfCompany | countryB                   | city       | name     | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB           | country              |
+      | uae@yopmail.com | uaeper@yopmail.com | CCNPegasus123 | Test         | UAE          | GSA           | AE - UNITED ARAB EMIRATES  | ABU DHABI  | uae comp | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | AUH - ABU DHABI | United Arab Emirates |
   
   @create_user_company_INA
-  Scenario Outline: create user company malaysia
+  Scenario Outline: create user company from indonesia
     Given go to main web
     Given press sign in button
-    When registration with new account from UAE <city> and <country> login
+    When registration with new account from INDO <city> and <country> login
     Then will redirected to suggested company list which match with domain name of the users
     When system didn't found the suggested company matched
     And input company name "<companyName>" from "<country>" dynamics
@@ -752,11 +753,11 @@ Discount can be applied to the product plan by default
     And press submit create company
     
     Examples: 
-      | companyemail    | email              | password      | companyName     | companyRegis | typeOfCompany | countryB        | city     | name                 | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB            | country   |
-      | ina@yopmail.com | inawon@yopmail.com | CCNPegasus123 | QA_CCN_Company  | INA          | GSA           | ID - INDONESIA  | JAKARTA  | perusahaan indonesia | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | JOG - YOGYAKARTA | Indonesia |
+      | companyemail    | email              | password      | companyName  | companyRegis | typeOfCompany | countryB        | city     | name                 | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB            | country   |
+      | ina@yopmail.com | inawon@yopmail.com | CCNPegasus123 | Test         | INA          | GSA           | ID - INDONESIA  | JAKARTA  | perusahaan indonesia | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | JOG - YOGYAKARTA | Indonesia |
       
   @create_user_company_SG
-  Scenario Outline: create user company malaysia
+  Scenario Outline: create user company from singapore
     Given go to main web
     Given press sign in button
     When registration with new account yopmail and login
@@ -782,7 +783,12 @@ Discount can be applied to the product plan by default
     And input contact details mobile no "<mobileNo>"
     And input contact details email "<email>"
     And press submit create company
+    Then will displayed pop up for post payment setup
+    And click proceed pop up button for creating company to the post payment
+    And click ok button from pop up confirmation that tells GIRO setup instructions has been sent to email
+    Then finally successfully to the setup post payment
+    And receive email notification giro setup
     
     Examples: 
-      | companyemail   | email             | password      | companyName     | companyRegis | typeOfCompany | country        | city             | name              | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | 
-      | sg@yopmail.com | sgsin@yopmail.com | CCNPegasus123 | QA_CCN_Company  | SGCOM        | GSA           | SG - SINGAPORE | SIN - SINGAPORE  | singapore compnay | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | 
+      | companyemail   | email             | password      | companyName | companyRegis | typeOfCompany | country        | city             | name              | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | 
+      | sg@yopmail.com | sgsin@yopmail.com | CCNPegasus123 | Test        | SGCOM        | GSA           | SG - SINGAPORE | SIN - SINGAPORE  | singapore admin   | admin       | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | 

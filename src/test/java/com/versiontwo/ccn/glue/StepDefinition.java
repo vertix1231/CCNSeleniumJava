@@ -2220,6 +2220,7 @@ public class StepDefinition {
 		closeTabAndBackToRegisterPage();
 		inputVerificationCodeOnRegisterPage();
 		pressVerificationCodeButtonOnRegisterPage();
+		pressBtnAgreetheTerm();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		pressCreateAccountOnRegisterPage();
 		backToTheMainTabBrowser();
@@ -2231,7 +2232,7 @@ public class StepDefinition {
 	@When("^registration with new account from INDO (.*) and (.*) login")
 	public void registrationWithNewAccountAndLoginina(String city, String country) throws Exception {
 		pressSignUpNowButton();
-		inputEmailAddressOnRegisterPageuae();
+		inputEmailAddressOnRegisterPageina();
 		pressSendVerificationCode();
 		inputPasswordConfirmPasswordOnRegisterPage();	
 		inputDisplayNameOnRegisterPage(Constants.DISPLAY_NAME);
@@ -2240,10 +2241,11 @@ public class StepDefinition {
 		selectCountryOnRegisterPage(country);
 		openNewTabAndOpenYopmail();
 		Thread.sleep(longwaitResponse);
-		getTheEmailVerificationAndExtractTheVerificationCodeuae();
+		getTheEmailVerificationAndExtractTheVerificationCodeina();
 		closeTabAndBackToRegisterPage();
 		inputVerificationCodeOnRegisterPage();
 		pressVerificationCodeButtonOnRegisterPage();
+		pressBtnAgreetheTerm();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		pressCreateAccountOnRegisterPage();
 		backToTheMainTabBrowser();
@@ -2318,6 +2320,7 @@ public class StepDefinition {
 	
 	@And("get the email verification and extract the verification code malaysia yopmail")
 	public void getTheEmailVerificationAndExtractTheVerificationCodemyYopmail() throws Exception {
+		Thread.sleep(7000);
 		mailServiceYopmailPage.getVerificationCodemy();
 		//		mailServiceMailinatorPOM.getVerificationCode("qa-ccn-04346@mailinator.com");
 		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
@@ -2328,6 +2331,15 @@ public class StepDefinition {
 	@And("get the email verification and extract the verification code united arab emirates")
 	public void getTheEmailVerificationAndExtractTheVerificationCodeuae() throws Exception {
 		mailServiceYopmailPage.getVerificationCodemy();
+		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
+		extentTest.pass( "get the email verification and extract the verification code",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
+	@And("get the email verification and extract the verification code indonesia")
+	public void getTheEmailVerificationAndExtractTheVerificationCodeina() throws Exception {
+		Thread.sleep(7000);
+		mailServiceYopmailPage.getVerificationCodeina();
 		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
 		extentTest.pass( "get the email verification and extract the verification code",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());

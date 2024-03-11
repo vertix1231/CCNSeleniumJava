@@ -610,7 +610,7 @@ public class CompanyPage {
 		clickAccountCircleIcon();
 		Thread.sleep(waitResponse);
 		menuAccount.click();
-		Thread.sleep(waitResponse);
+		ClickSubscribe.isDisplayed();
 		ClickSubscribe.click();
 		Thread.sleep(waitResponse);
 		

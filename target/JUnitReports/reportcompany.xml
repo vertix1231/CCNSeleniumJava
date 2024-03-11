@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="79.383">
-    <testcase classname="My Company" name="S1 After login for the first time will be redirected to the suggested company list, which is matching with domain name" time="78.861">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="76.612">
+    <testcase classname="My Company" name="S1 After login for the first time will be redirected to the suggested company list, which is matching with domain name" time="75.87">
         <system-out><![CDATA[Given go to main web........................................................passed
 Given press sign in button..................................................passed
 When registration with new account yopmail and login........................passed

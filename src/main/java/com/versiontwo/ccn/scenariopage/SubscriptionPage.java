@@ -56,7 +56,7 @@ public class SubscriptionPage {
 	@CacheLookup
 	private WebElement inputserachphonenumberformpayment;
 
-	@FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/main/div/div[2]/form/div[2]/div/div[2]/button")
+	@FindBy(xpath = "//div[@class='SubmitButton-IconContainer']")
 	@CacheLookup
 	private WebElement SubmitButtoncompleteformpaymentStripe;
 
@@ -374,6 +374,39 @@ public class SubscriptionPage {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 			chckBoxComplimentarySubscribee.click();
 		}
+		
+		public void clickchckBoxawbconciergepremiummulticurrencysandbox() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement chckBoxComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("input#cube-subscribe-btn-checkbox-65e00d89ba77a5a13700178c"));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + chckBoxComplimentarySubscribee.isDisplayed());
+			chckBoxComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			chckBoxComplimentarySubscribee.click();
+		}
+		
+		public void clickchckBoxtestiatatactratepremiummulticurrencysandbox() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement chckBoxComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("input#cube-subscribe-btn-checkbox-65e6bb07f74faed02021600c"));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + chckBoxComplimentarySubscribee.isDisplayed());
+			chckBoxComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			chckBoxComplimentarySubscribee.click();
+		}
+		
+		public void clickchckBoxsubscribetestbcpremiummulticurrencysandbox() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement chckBoxComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("input#cube-subscribe-btn-checkbox-65e00cb4ba77a5a1370015b8"));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + chckBoxComplimentarySubscribee.isDisplayed());
+			chckBoxComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			chckBoxComplimentarySubscribee.click();
+		}
 
 		public void clickBtnSubscribequotationproposalplan() throws Exception {
 			Thread.sleep(waitResponse);
@@ -389,6 +422,36 @@ public class SubscriptionPage {
 			Thread.sleep(waitResponse);
 			WebElement btnComplimentarySubscribee = shadowDomcpsubscribe()
 					.findElement(By.cssSelector("button#cube-subscribe-btn-657c08880cc0f27d570a3ac8"));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
+			btnComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			btnComplimentarySubscribee.click();
+		}
+		
+		public void clickBtnsubscribetestawbconciergepremiummulticurrencysandbox() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement btnComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("button#cube-subscribe-btn-65e00d89ba77a5a13700178c"));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
+			btnComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			btnComplimentarySubscribee.click();
+		}
+		
+		public void clickBtnsubscribetestbcpremiummulticurrencysandbox() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement btnComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("button#cube-subscribe-btn-65e00cb4ba77a5a1370015b8"));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
+			btnComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			btnComplimentarySubscribee.click();
+		}
+		
+		public void clickBtnsubscribetestiatatactratepremiummulticurrencysandbox() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement btnComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("button#cube-subscribe-btn-65e6bb07f74faed02021600c"));
 			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
 			btnComplimentarySubscribee.isDisplayed();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
@@ -420,6 +483,21 @@ public class SubscriptionPage {
 			clickchckBoxbundleAWBBCplan();
 			inputbundleawbbc();
 			clickBtnSubscribebundleAWBBCplan();
+		}
+		
+		private void subscribetestawbconciergepremiummulticurrencysandbox() throws Exception {
+			clickchckBoxawbconciergepremiummulticurrencysandbox();
+			clickBtnsubscribetestawbconciergepremiummulticurrencysandbox();
+		}
+		
+		private void subscribetestiatatactratepremiummulticurrencysandbox() throws Exception {
+			clickchckBoxtestiatatactratepremiummulticurrencysandbox();
+			clickBtnsubscribetestiatatactratepremiummulticurrencysandbox();
+		}
+		
+		private void subscribetestbcpremiummulticurrencysandbox() throws Exception {
+			clickchckBoxsubscribetestbcpremiummulticurrencysandbox();
+			clickBtnsubscribetestbcpremiummulticurrencysandbox();
 		}
 
 		public void clickchckBoxbookingqueueplan() throws Exception {
@@ -883,20 +961,27 @@ public class SubscriptionPage {
 		case "Booking Queue":
 			lsPlanProduct.get(1).click();
 			break;
+			
+		case "Booking Queue China Site":
+			driver.get("https://cndev.cubeforall.com/products/freight-operations-management/booking-queue/");
+			break;
 		case "Cargo Insurance":
 			lsPlanProduct.get(2).click();
 			break;
 		case "Cargo Insurance China Site":
-			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/redkik-cargo-insurance/");
+			driver.get("https://cndev.cubeforall.com/products/freight-operations-management/redkik-cargo-insurance/");
+//			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/redkik-cargo-insurance/");
 			break;
 		case "CargoMart by CargoAi":
 			lsPlanProduct.get(3).click();
 			break;
 		case "CargoMart by CargoAi China Site":
-			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/cargomart-by-cargoai/");
+			driver.get("https://cndev.cubeforall.com/products/freight-operations-management/cargomart-by-cargoai/");
+//			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/cargomart-by-cargoai/");
 			break;	
 		case "Lead Freight Solutions":
-			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/lead-freight-solutions/");
+			driver.get("https://cndev.cubeforall.com/products/freight-operations-management/lead-freight-solutions/");
+//			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/lead-freight-solutions/");
 			break;
 		case "Freight Management System - LFS Trial":
 			lsPlanProduct.get(4).click();
@@ -911,13 +996,15 @@ public class SubscriptionPage {
 			lsPlanProduct.get(5).click();
 			break;
 		case "Quotation Request China Site":
-			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/quotation-request/");
+			driver.get("https://cndev.cubeforall.com/products/freight-operations-management/quotation-request/");
+//			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/quotation-request/");
 			break;
 		case "Quotation Proposal":
 			lsPlanProduct.get(6).click();
 			break;
 		case "Quotation Proposal China Site":
-			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/quotation-proposal/");
+			driver.get("https://cndev.cubeforall.com/products/freight-operations-management/quotation-proposal/");
+//			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/quotation-proposal/");
 			break;
 		case "Moaah Starter":
 //			lsPlanProduct.get(8).click();
@@ -938,24 +1025,37 @@ public class SubscriptionPage {
 //			lsPlanProduct.get(12).click();
 			break;
 		case "AWB Concierge":
-			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/awb-concierge/");
+			driver.get("https://cndev.cubeforall.com/products/compliance-and-documentation/awb-concierge/");
+//			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/awb-concierge/");
 //			driver.get("https://cubeforall.com/products/compliance-and-documentation/awb-concierge/");
 			break;
 		case "AWB Editor":
-			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/awb-editor/");
+			driver.get("https://cndev.cubeforall.com/products/compliance-and-documentation/awb-editor/");
+//			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/awb-editor/");
 //			driver.get("https://cubeforall.com/products/compliance-and-documentation/awb-editor/");
 			break;
 		case "DGOffice":
-			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/dgoffice/");
+			driver.get("https://cndev.cubeforall.com/products/compliance-and-documentation/dgoffice/");
+//			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/dgoffice/");
 //			driver.get("https://cubeforall.com/products/compliance-and-documentation/dgoffice/");
 			break;
 		case "Air Line Tariff Query":
-			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
+			driver.get("https://cndev.cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
+//			driver.get("https://sandbox.cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
 //			driver.get("https://cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
 			break;
 		case "Bundle BC AWB":
 			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/bundle-awb-bc/");
 //			driver.get("https://cubeforall.com/products/compliance-and-documentation/airline-tariff-query/");
+			break;
+		case "test awbconcierge premium multicurrencysandbox":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/test-awbconcierge-premium-multicurrencysandbox/");
+			break;
+		case "test iata tact rate premium multicurrencysandbox":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/test-iata-tact-rate-premium-multicurrencysandbox/");
+			break;
+		case "test bc premium multicurrencysandbox":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/test-bc-premium-multicurrencysandbox/");
 			break;
 		default:
 			break;
@@ -1055,6 +1155,15 @@ public class SubscriptionPage {
 			break;
 		case "Bundle BC AWB":
 			subscribebundleBCAWBplan();
+			break;
+		case "test awbconcierge premium multicurrencysandbox":
+			subscribetestawbconciergepremiummulticurrencysandbox();
+			break;
+		case "test iata tact rate premium multicurrencysandbox":
+			subscribetestiatatactratepremiummulticurrencysandbox();
+			break;
+		case "test bc premium multicurrencysandbox":
+			subscribetestbcpremiummulticurrencysandbox();
 			break;
 		default:
 			break;

@@ -22,8 +22,7 @@ Feature: My Company
     Then will redirected to suggested company list which match with domain name of the users
 
 #new aacounts sandbox:
-#qa-ccn-41965@mailinator.com
-#qa-ccn-25445@mailinator.com
+#sgqa-ccn-97777040@mailinator.com
 #qa-ccn-67431@mailinator.com
 #qa-ccn-58421@mailinator.com
 #qa-ccn-75346@mailinator.com
@@ -38,7 +37,6 @@ Feature: My Company
 
 
 #nd login or more sandbox already on company:
-#qa-ccn-75754@mailinator.com
 #qa-ccn-66370@mailinator.com
 #qa-ccn-32068@mailinator.com
 #qa-ccn-99227@mailinator.com
@@ -1633,20 +1631,16 @@ Feature: My Company
     	And wait for response
     	And Select plan "to check subscibtion element" "<productF>"
     	And wait for response
-    	And Select plan "to check subscibtion element" "<productG>"
-    	And wait for response
     	And Select plan "to check subscibtion element" "<productH>"
     	And wait for response
     	And Select plan "to check subscibtion element" "<productI>"
     	And wait for response
     	And Select plan "to check subscibtion element" "<productJ>"
-    	And wait for response
-    	And Select plan "to check subscibtion element" "<productK>"
 
 
     	Examples: 
-      	| email                       | password      | product       | productB                   | productC                        | productD               | productE                     | productF                      | productG      | productH      | productI   | productJ | productK              |
-      	| qa-ccn-04346@mailinator.com | CCNPegasus123 | Booking Queue | Cargo Insurance China Site | CargoMart by CargoAi China Site | Lead Freight Solutions | Quotation Request China Site | Quotation Proposal China Site | Bundle BC AWB | AWB Concierge | AWB Editor | DGOffice | Air Line Tariff Query |
+      	| email                         | password      | product       | productB                   | productC                        | productD               | productE                     | productF                      | productG      | productH      | productI   | productJ | productK              |
+      	| userlevelchina@mailinator.com | CCNPegasus123 | Booking Queue China Site | Cargo Insurance China Site | CargoMart by CargoAi China Site | Lead Freight Solutions | Quotation Request China Site | Quotation Proposal China Site | Bundle BC AWB | AWB Concierge | AWB Editor | DGOffice | Air Line Tariff Query |
       	
       	
     @ChinaSiteCompanyFromChina
@@ -1668,19 +1662,15 @@ Feature: My Company
     	And wait for response
     	And Select plan "to check subscibtion element" "<productF>"
     	And wait for response
-    	And Select plan "to check subscibtion element" "<productG>"
-    	And wait for response
     	And Select plan "to check subscibtion element" "<productH>"
     	And wait for response
     	And Select plan "to check subscibtion element" "<productI>"
     	And wait for response
     	And Select plan "to check subscibtion element" "<productJ>"
     	And wait for response
-    	And Select plan "to check subscibtion element" "<productK>"
-    	And wait for response
     	And go to my icon account menu then click subscribe
 
 
     	Examples: 
       	| email                       | password      | product       | productB                   | productC                        | productD               | productE                     | productF                      | productG      | productH      | productI   | productJ | productK              |
-      	| qa-ccn-04346@mailinator.com | CCNPegasus123 | Booking Queue | Cargo Insurance China Site | CargoMart by CargoAi China Site | Lead Freight Solutions | Quotation Request China Site | Quotation Proposal China Site | Bundle BC AWB | AWB Concierge | AWB Editor | DGOffice | Air Line Tariff Query |
+      	| qa-ccn-09538@mailinator.com | CCNPegasus123 | Booking Queue China Site | Cargo Insurance China Site | CargoMart by CargoAi China Site | Lead Freight Solutions | Quotation Request China Site | Quotation Proposal China Site | Bundle BC AWB | AWB Concierge | AWB Editor | DGOffice | Air Line Tariff Query |
