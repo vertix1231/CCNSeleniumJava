@@ -385,8 +385,8 @@ Discount can be applied to the product plan by default
       | sgqa-ccn-72922@mailinator.com | CCNPegasus123 | Lead Freight Solutions | sgqa-ccn-72923@mailinator.com  | Bundle BC AWB           | Booking Concierge       | CargoMart by CargoAi 	|
   
     
-  @PCNS14
-	Scenario Outline: Subscription meet minimum PCN Charge. PCN Configuration:  set to 10% of each subscription, PCN applies to all products, countries, cities, companies. $2 discount set for PCN with validity period of 2 months.
+  @PCNS14_DiscountBCAWB
+	Scenario Outline: Subscribe AWB & BC premium plan with .
     Given go to main web
     Given press sign in button
     When input email <email> and password <password> and press sign in to continue login
@@ -394,23 +394,14 @@ Discount can be applied to the product plan by default
     When "PM 1 Company A" click product tab to subscribe to product
     And Select plan "Plan A" "<product>"
     And Subscribe plan "<product>"
-    And input the complete subscriber payment form
-    When "PM 1 Company A" click product tab to subscribe to product
-    And Select plan "Plan B" "<productB>"
-    And Subscribe plan "<productB>"
-    And click subscriber payment form
-    And go to my icon account to Sign Out
-    Given press sign in button
-    When input email <email2> and password <password> and press sign in to continue login
-    And back to the main tab browser
-    When "PM 2 Company A" click product tab to subscribe to product
-    And Select plan "Plan C" "<productC>"
-    And Subscribe plan "<productC>"
-    And input the complete subscriber payment form
+    #And input the complete subscriber payment form
+    #When "PM 1 Company A" click product tab to subscribe to product
+    #And Select plan "Plan B" "<productB>"
+    #And Subscribe plan "<productB>"
     
   Examples: 
-    | email                         | password      | product                | email2                         | productB      | productC      |
-    | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | Lead Freight Solutions | sgqa-ccn-72921@mailinator.com  | Bundle BC AWB | Booking Queue |
+    | email                         | password      | product                | productB      | 
+    | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | test bc premium multicurrencysandbox discount | Bundle BC AWB |
 	
 	@PCN15
   Scenario Outline: PCN charges can be set a flat rate and applied to CN market in a specify city

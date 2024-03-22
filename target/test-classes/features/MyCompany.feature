@@ -22,33 +22,12 @@ Feature: My Company
     Then will redirected to suggested company list which match with domain name of the users
 
 #new aacounts sandbox:
-#sgqa-ccn-97777040@mailinator.com
-#qa-ccn-67431@mailinator.com
-#qa-ccn-58421@mailinator.com
-#qa-ccn-75346@mailinator.com
-#qa-ccn-99036@mailinator.com
-#qa-ccn-11354@mailinator.com
-#qa-ccn-34208@mailinator.com
-#qa-ccn-42447@mailinator.com
-#qa-ccn-43431@mailinator.com
-#qa-ccn-15668@mailinator.com
-#qa-ccn-55758@mailinator.com
-#qa-ccn-45840@mailinator.com
 
 
 #nd login or more sandbox already on company:
-#qa-ccn-66370@mailinator.com
-#qa-ccn-32068@mailinator.com
-#qa-ccn-99227@mailinator.com
-#qa-ccn-33061@mailinator.com
-#qa-ccn-70255@mailinator.com
-#qa-ccn-91752@mailinator.com
-#qa-ccn-84565@mailinator.com
-#qa-ccn-03475@mailinator.com
-#qa-ccn-68108@mailinator.com
 #qa-ccn-23395@mailinator.com 
 #qa-ccn-40243@mailinator.com
-#qa-ccn-71823@mailinator.com
+#qa-ccn-15668@mailinator.com
 
 #have company
 #qa-ccn-46551@mailinator.com

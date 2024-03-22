@@ -144,7 +144,7 @@ public class StepDefinition {
 	public void clickSignInButton() throws Exception {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 //		loginPage.pressAcceptCookies();
-		originalWindow = driver.getWindowHandle();
+        originalWindow = driver.getWindowHandle();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		loginPage.pressSignInOnTheHomepage();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));

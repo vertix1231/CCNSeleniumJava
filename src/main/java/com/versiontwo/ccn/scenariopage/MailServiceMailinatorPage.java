@@ -70,7 +70,7 @@ public class MailServiceMailinatorPage {
 }
 
 public void getVerificationCodeuae(){
-	// search mail on mailinator
+	// search mail on mailinat
 	driver.findElement(txtSearch).clear();
 	driver.findElement(txtSearch).sendKeys(Constants.FULL_EMAIL_UAE, Keys.ENTER);
 	// press or expand the email

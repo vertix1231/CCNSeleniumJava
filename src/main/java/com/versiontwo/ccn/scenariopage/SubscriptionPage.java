@@ -8,10 +8,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import com.versiontwo.ccn.driver.DriverSingleton;
 
 public class SubscriptionPage {
@@ -137,6 +139,7 @@ public class SubscriptionPage {
 		clickBtnConfirmComplimentarySubsribelfsfreetrial();
 
 	}
+	
 
 	// LFS FREE TRIAL
 	public void clickchckBoxComplimentarySubscribelfsfreetrial() throws Exception {
@@ -407,6 +410,17 @@ public class SubscriptionPage {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 			chckBoxComplimentarySubscribee.click();
 		}
+		
+		public void clickcoupontextsubscribetestbcpremiummulticurrencysandbox() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement chckBoxComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("div.coupon-text"));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			System.out.println("clickComplimentaryCoupon is display: " + chckBoxComplimentarySubscribee.isDisplayed());
+			chckBoxComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			chckBoxComplimentarySubscribee.click();
+		}
 
 		public void clickBtnSubscribequotationproposalplan() throws Exception {
 			Thread.sleep(waitResponse);
@@ -498,6 +512,13 @@ public class SubscriptionPage {
 		private void subscribetestbcpremiummulticurrencysandbox() throws Exception {
 			clickchckBoxsubscribetestbcpremiummulticurrencysandbox();
 			clickBtnsubscribetestbcpremiummulticurrencysandbox();
+		}
+		
+		private void subscribetestbcpremiummulticurrencysandboxdiscount() throws Exception {
+			clickchckBoxsubscribetestbcpremiummulticurrencysandbox();
+			clickcoupontextsubscribetestbcpremiummulticurrencysandbox();
+			inpupromobcpremium();
+			pressConfirm();
 		}
 
 		public void clickchckBoxbookingqueueplan() throws Exception {
@@ -708,6 +729,27 @@ public class SubscriptionPage {
 			;
 		}
 		
+		public void inpupromobcpremium() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement btnComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("input.input-promo"));
+			System.out.println("inputComplimentaryinputPromo is display: " + btnComplimentarySubscribee.isDisplayed());
+			btnComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			btnComplimentarySubscribee.sendKeys("UATSUBSPCN1");
+		}
+		
+		public void pressConfirm() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement btnComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("div#cube-subscribe-promo-btn-65e00cb4ba77a5a1370015b8"));
+			System.out.println("clickComplimentaryBtnConfirm is display: " + btnComplimentarySubscribee.isDisplayed());
+			btnComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			btnComplimentarySubscribee.click();
+			Thread.sleep(waitResponse);
+		}
+		
 		public void inputlfsmultiplandowngrade() throws Exception {
 			Thread.sleep(waitResponse);
 			WebElement btnComplimentarySubscribee = shadowDomcpsubscribesecond()
@@ -726,7 +768,7 @@ public class SubscriptionPage {
 			System.out.println("clickComplimentaryBtnSubsribe is display: " + btnComplimentarySubscribee.isDisplayed());
 			btnComplimentarySubscribee.isDisplayed();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
-			btnComplimentarySubscribee.sendKeys("5");
+			btnComplimentarySubscribee.click();
 			;
 		}
 		
@@ -1057,6 +1099,9 @@ public class SubscriptionPage {
 		case "test bc premium multicurrencysandbox":
 			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/test-bc-premium-multicurrencysandbox/");
 			break;
+		case "test bc premium multicurrencysandbox discount":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/test-bc-premium-multicurrencysandbox/");
+			break;
 		default:
 			break;
 		}
@@ -1164,6 +1209,9 @@ public class SubscriptionPage {
 			break;
 		case "test bc premium multicurrencysandbox":
 			subscribetestbcpremiummulticurrencysandbox();
+			break;
+		case "test bc premium multicurrencysandbox discount":
+			subscribetestbcpremiummulticurrencysandboxdiscount();
 			break;
 		default:
 			break;
