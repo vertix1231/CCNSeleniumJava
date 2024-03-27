@@ -105,6 +105,19 @@ public class MailServiceYopmailPage {
 		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
 	}
 	
+	public void getVerificationCodeUAE(){
+		// search mail on mailinator
+		driver.findElement(txtSearch).clear();
+		driver.findElement(txtSearch).sendKeys(Constants.FULL_EMAIL_UAE, Keys.ENTER);
+		// press or expand the email
+		driver.findElement(emailOnLists).isDisplayed();
+		driver.findElement(emailOnLists).click();
+		// get text email verification and extract the verification code
+		driver.switchTo().frame("ifmail");
+		String getEmailText = driver.findElement(emailVerification).getText();
+		Constants.VERIFICATION_CODE = StringUtils.getDigits(getEmailText);
+	}
+	
 	public void getVerificationCodeina(){
 		// search mail on mailinator
 		driver.findElement(txtSearch).clear();

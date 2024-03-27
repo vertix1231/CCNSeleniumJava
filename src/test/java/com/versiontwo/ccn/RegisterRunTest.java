@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 monochrome= true,
 plugin = {"pretty", "junit:target/JUnitReports/report.xml",
 		"json:target/JSONReports/report.json",
-"html:target/HtmlReports.html"},tags="@RegistrationCube")
+"html:target/HtmlReports.html"},tags="@Support_Discount1")
 public class RegisterRunTest {
 
 	@Test

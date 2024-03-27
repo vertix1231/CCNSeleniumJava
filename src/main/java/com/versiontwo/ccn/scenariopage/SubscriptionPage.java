@@ -411,6 +411,17 @@ public class SubscriptionPage {
 			chckBoxComplimentarySubscribee.click();
 		}
 		
+		public void clickchckBoxsubscribeawbconciergepremiummulticurrencysandbox() throws Exception {
+			Thread.sleep(waitResponse);
+			WebElement chckBoxComplimentarySubscribee = shadowDomcpsubscribe()
+					.findElement(By.cssSelector("input#cube-subscribe-btn-checkbox-65e00d89ba77a5a13700178c"));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			System.out.println("clickComplimentaryBtnSubsribe is display: " + chckBoxComplimentarySubscribee.isDisplayed());
+			chckBoxComplimentarySubscribee.isDisplayed();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+			chckBoxComplimentarySubscribee.click();
+		}
+		
 		public void clickcoupontextsubscribetestbcpremiummulticurrencysandbox() throws Exception {
 			Thread.sleep(waitResponse);
 			WebElement chckBoxComplimentarySubscribee = shadowDomcpsubscribe()
@@ -516,6 +527,13 @@ public class SubscriptionPage {
 		
 		private void subscribetestbcpremiummulticurrencysandboxdiscount() throws Exception {
 			clickchckBoxsubscribetestbcpremiummulticurrencysandbox();
+			clickcoupontextsubscribetestbcpremiummulticurrencysandbox();
+			inpupromobcpremium();
+			pressConfirm();
+		}
+		
+		private void subscribeawbconciergepremiummulticurrencysandboxdiscount() throws Exception {
+			clickchckBoxsubscribeawbconciergepremiummulticurrencysandbox();
 			clickcoupontextsubscribetestbcpremiummulticurrencysandbox();
 			inpupromobcpremium();
 			pressConfirm();
@@ -1102,6 +1120,9 @@ public class SubscriptionPage {
 		case "test bc premium multicurrencysandbox discount":
 			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/test-bc-premium-multicurrencysandbox/");
 			break;
+		case "awbconcierge multicurrencysandbox discount":
+			driver.get("https://sandbox.cubeforall.com/products/freight-operations-management/test-awbconcierge-premium-multicurrencysandbox/");
+			break;
 		default:
 			break;
 		}
@@ -1212,6 +1233,9 @@ public class SubscriptionPage {
 			break;
 		case "test bc premium multicurrencysandbox discount":
 			subscribetestbcpremiummulticurrencysandboxdiscount();
+			break;
+		case "awbconcierge premium multicurrencysandbox discount":
+			subscribeawbconciergepremiummulticurrencysandboxdiscount();
 			break;
 		default:
 			break;

@@ -394,14 +394,12 @@ Discount can be applied to the product plan by default
     When "PM 1 Company A" click product tab to subscribe to product
     And Select plan "Plan A" "<product>"
     And Subscribe plan "<product>"
-    #And input the complete subscriber payment form
-    #When "PM 1 Company A" click product tab to subscribe to product
-    #And Select plan "Plan B" "<productB>"
-    #And Subscribe plan "<productB>"
+    And Select plan "Plan B" "<productB>"
+    And Subscribe plan "<productB>"
     
   Examples: 
-    | email                         | password      | product                | productB      | 
-    | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | test bc premium multicurrencysandbox discount | Bundle BC AWB |
+    | email                         | password      | product                                       | productB                                   | 
+    | sgqa-ccn-72920@mailinator.com | CCNPegasus123 | test bc premium multicurrencysandbox discount | awbconcierge multicurrencysandbox discount |
 	
 	@PCN15
   Scenario Outline: PCN charges can be set a flat rate and applied to CN market in a specify city
@@ -712,8 +710,8 @@ Discount can be applied to the product plan by default
     And press submit create company
     
     Examples: 
-      | companyemail    | email              | password      | companyName  | companyRegis | typeOfCompany | countryB                   | city       | name     | designation | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB           | country              |
-      | uae@yopmail.com | uaeper@yopmail.com | CCNPegasus123 | Test         | UAE          | GSA           | AE - UNITED ARAB EMIRATES  | ABU DHABI  | uae comp | marketing   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | AUH - ABU DHABI | United Arab Emirates |
+      | companyemail    | email              | password      | companyName  | companyRegis | typeOfCompany | countryB                   | city       | name     | designation    | mobileNo     | iataNo  | cassNo | officeAddress       | postCode | mobileNoCompany | product       | cityB           | country              |
+      | uae@yopmail.com | uaeper@yopmail.com | CCNPegasus123 | Test         | UAE          | GSA           | AE - UNITED ARAB EMIRATES  | ABU DHABI  | uae comp | plan manager   | 081234567891 | 1234567 | 1234   | 101 Cantonment road |   089774 |      1111111111 | AWB Concierge | AUH - ABU DHABI | United Arab Emirates |
   
   @create_user_company_INA
   Scenario Outline: create user company from indonesia

@@ -106,6 +106,17 @@ public class StepDefinition {
 		extentTest.pass("Navigation to : " + Constants.URL_MAIN_WEB,
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	
+	@Given("^go to support app web")
+	public void gotosupportappweb() throws Exception {
+		driver.get(Constants.URL_SUPPORT_APP_WEB);	
+		Thread.sleep(waitResponse);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		extentTest.log(Status.PASS, "Navigation to : " + Constants.URL_SUPPORT_APP_WEB);
+		extentTest.pass("Navigation to : " + Constants.URL_SUPPORT_APP_WEB,
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
 	@Given("^go to yopmail")
 	public void go_to_yopmail() throws Exception {
 		driver.switchTo().newWindow(WindowType.TAB);
@@ -158,6 +169,16 @@ public class StepDefinition {
 		extentTest.pass( "press sign in button",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	
+	@When("user go to create discount menu")
+	public void usergotocreatediscountmenu() throws Exception {
+		pressSignUpNowButton();
+		inputEmailAddressOnRegisterPage();
+		extentTest.log(Status.PASS, "user go to create discount menu");
+		extentTest.pass( "user go to create discount menu",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
 	@And("^input initial email sign in")
 	public void input_initial_email_sign_in() throws Exception {
 		loginPage.inputSignin();
@@ -186,9 +207,19 @@ public class StepDefinition {
 		extentTest.pass( "back to the main tab browser",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	@When("^input user ID (.*) and password (.*) and submit button to continue login")
+	public void inputuserIDandPassword(String userID, String password) throws Exception {
+		Thread.sleep(waitResponse);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		loginPage.inputSigninSupportApp(userID,password);
+		extentTest.log(Status.PASS, "input user ID (.*) and password (.*) and press sign in to continue login");
+		extentTest.pass( "input user ID (.*) and password (.*) and press sign in to continue login",
+				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
+	}
+	
 	@When("^input email (.*) and password (.*) and press sign in to continue login")
 	public void inputEmailAndPasswordAndPressSignInToContinueLogin(String email, String password) throws Exception {
-		Thread.sleep(longwaitResponse);
+		Thread.sleep(waitResponse);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
 		loginPage.inputSignin(email,password);
 		//				loginPage.inputSignin();
@@ -375,6 +406,7 @@ public class StepDefinition {
 		extentTest.pass( "press create account on register page",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());
 	}
+	
 	@When("registration with new account and login")
 	public void registrationWithNewAccountAndLogin() throws Exception {
 		pressSignUpNowButton();
@@ -2330,7 +2362,7 @@ public class StepDefinition {
 	
 	@And("get the email verification and extract the verification code united arab emirates")
 	public void getTheEmailVerificationAndExtractTheVerificationCodeuae() throws Exception {
-		mailServiceYopmailPage.getVerificationCodemy();
+		mailServiceYopmailPage.getVerificationCodeUAE();
 		extentTest.log(Status.PASS, "get the email verification and extract the verification code");
 		extentTest.pass( "get the email verification and extract the verification code",
 				MediaEntityBuilder.createScreenCaptureFromPath(passcaptureScreen()).build());

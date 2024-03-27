@@ -37,14 +37,27 @@ public class LoginPage {
 	@FindBy(xpath = "//*[@id=\"signInName\"]")
 	@CacheLookup
 	private WebElement nameFormSignin;
+	
+	@FindBy(xpath = "//*[@id=\"formUserId\"]")
+	@CacheLookup
+	private WebElement FormUserid;
 
 	@FindBy(xpath = "//*[@id=\"password\"]")
 	@CacheLookup
 	private WebElement passwordFormSignin;
+	
+	@FindBy(xpath = "//*[@id=\"formBasicPassword\"]")
+	@CacheLookup
+	private WebElement formBasicPassword;
 
 	@FindBy(xpath = "//button[@id=\"next\"]")
 	@CacheLookup
 	private WebElement btnInputSignin;
+	
+	@FindBy(xpath = "//button[text()='Submit']")
+	@CacheLookup
+	private WebElement btnSubmit;
+	
 	private String initwindow ="";
 
 
@@ -145,6 +158,21 @@ public class LoginPage {
 		Thread.sleep(waitResponse);
 		wait.until(ExpectedConditions.elementToBeClickable(btnInputSignin));
 		btnInputSignin.click();
+	}
+	
+	public void inputSigninSupportApp(String userID,String password) throws Exception {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitResponse));
+		Constants.FULL_EMAIL_AFTER_LOGIN=userID;
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		FormUserid.isDisplayed();
+		FormUserid.sendKeys(userID);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		formBasicPassword.isDisplayed();
+		formBasicPassword.sendKeys(password);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitResponse));
+		System.out.println("button submit is displaying : "+btnSubmit.isDisplayed()+" and enabled : "+btnSubmit.isEnabled());
+		wait.until(ExpectedConditions.elementToBeClickable(btnSubmit));
+		btnSubmit.click();
 	}
 
 }

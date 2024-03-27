@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="78.479">
-    <testcase classname="My Company" name="S1 After login for the first time will be redirected to the suggested company list, which is matching with domain name" time="77.841">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="190.595">
+    <testcase classname="PCN" name="create user company from singapore" time="189.766">
         <system-out><![CDATA[Given go to main web........................................................passed
 Given press sign in button..................................................passed
 When registration with new account yopmail and login........................passed
 Then will redirected to suggested company list which match with domain name of the users.passed
+When system didn't found the suggested company matched......................passed
+And input company name "Test" from "SG - SINGAPORE" dynamics................passed
+And input company registration "SGCOM"......................................passed
+And input company type "GSA"................................................passed
+And input country "SG - SINGAPORE"..........................................passed
+And input city "SIN - SINGAPORE"............................................passed
+And theres button to create company with the status was enabled to create company.passed
+Then the user was able to create a new company..............................passed
+When press create company button............................................passed
+And input contact details IATA membership number "1234567"..................passed
+And input contact details CASS number "1234"................................passed
+And input registered office address "101 Cantonment road" for company detail.passed
+And input post code "089774" for company detail.............................passed
+And input company email "sg@yopmail.com" for company detail.................passed
+And input mobile number detail company "1111111111" for company detail......passed
+And input mailing address complete from same as registered company address..passed
+And input contact details name "singapore admin"............................passed
+And input contact details designation "admin"...............................passed
+And input contact details mobile no "081234567891"..........................passed
+And input contact details email "sgsin@yopmail.com".........................passed
+And press submit create company.............................................passed
+Then will displayed pop up for post payment setup...........................passed
+And click proceed pop up button for creating company to the post payment....passed
+And click ok button from pop up confirmation that tells GIRO setup instructions has been sent to email.passed
+Then finally successfully to the setup post payment.........................passed
+And receive email notification giro setup...................................passed
 ]]></system-out>
     </testcase>
 </testsuite>

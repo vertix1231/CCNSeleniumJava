@@ -12,6 +12,7 @@ public class Constants {
 //	public static final String URL_MAIN_WEB = "https://opensource-demo.orangehrmlive.com/";
 //	public static final String URL_MAIN_WEB = "https://www.saucedemo.com/v1/index.html";
 	public static final String URL_MAIN_WEB = "https://sandbox.cubeforall.com/";
+	public static final String URL_SUPPORT_APP_WEB = "http://cubehelp.sandbox.ccn/supportforall/login";
 //	public static final String URL_MAIN_WEB = "https://dev.cubeforall.com/";
 //	public static final String URL_MAIN_WEB = "https://cubeforall.com";
 //	https://www.orangehrm.com

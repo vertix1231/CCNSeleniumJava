@@ -23,14 +23,11 @@ Feature: My Company
 
 #new aacounts sandbox:
 
-
 #nd login or more sandbox already on company:
 #qa-ccn-23395@mailinator.com 
 #qa-ccn-40243@mailinator.com
-#qa-ccn-15668@mailinator.com
 
 #have company
-#qa-ccn-46551@mailinator.com
 
 #new aacounts dev:
 #qa-ccn-66660@mailinator.com
